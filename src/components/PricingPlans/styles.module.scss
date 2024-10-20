@@ -1,0 +1,25 @@
+.pricingPlans {
+
+    &__container {
+        padding-top: 107px;
+        max-width: 1440px;
+        margin: 0 auto;
+       display: flex;
+       flex-direction: column;
+    }
+
+    &__content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-bottom: 50px;
+    }
+    
+    &__title {
+        @include mainTitles();
+        margin-bottom: 70px;
+    }
+
+
+}
+

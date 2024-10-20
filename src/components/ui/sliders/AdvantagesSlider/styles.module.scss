@@ -1,0 +1,28 @@
+.advantagesSlider__container {
+    width: 80vw;
+    margin: 0 auto;
+
+ position: relative;
+ height: fit-content;
+
+ 
+
+}
+.arrowPrev {
+    position: absolute;
+    left: -15px;
+    width: 39px;
+    height: 39px;
+    z-index: 100;
+    cursor: pointer;
+}
+
+.arrowNext{
+    position: absolute;
+    right: -5px;
+    width: 39px;
+    height: 39px;
+    z-index: 100;
+    cursor: pointer;
+}
+

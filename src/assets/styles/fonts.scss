@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap');
+
+
+$font-size-large: clamp(1.75rem, 1.046rem + 3vw, 3.75rem);
+$font-size-medium: 20px;
+$font-size-small: 14px;
+$font-weight-bold: 900;
+$font-weight-regular: 400;
+$line-height-large: clamp(2.063rem, 1.204rem + 3.66vw, 4.5rem);
+$line-height-medium: 24px;
+$line-height-small: 17px;
+
+
+@mixin responsive-font($size) {
+  @media (max-width: 576px) {
+    font-size: $size;
+  }
+}
+
+
+@mixin Inter($font-size, $font-weight, $line-height) {
+  font-family: 'Inter', sans-serif;
+  font-size: $font-size;
+  font-weight: $font-weight;
+  line-height: $line-height;
+}
+
+
+@mixin Ferry($font-size, $font-weight, $line-height) {
+  font-family: 'Ferry', sans-serif;
+  font-size: $font-size;
+  font-weight: $font-weight;
+  line-height: $line-height;
+}
+
+
+@font-face {
+  font-family: "Ferry";
+  src: url("../../../public/fonts/Ferry/ferry_black.otf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+
+@mixin heroSearchTitle() {
+  @include Ferry($font-size-large, $font-weight-bold, $line-height-large);
+  text-transform: uppercase;
+  color: $black;
+}
+
+@mixin heroSearchDescrAndPricingPlansBtns() {
+  @include Inter($font-size-medium, $font-weight-regular, $line-height-medium);
+  color: $black;
+}
+
+@mixin heroSearchBtn() {
+  @include Inter(22px, 500, 26px);
+  color: $white;
+}
+
+@mixin mainTitles() {
+  @include Ferry(clamp(1.75rem, 1.376rem + 1.6vw, 2.813rem), $font-weight-bold, clamp(2.063rem, 1.6rem + 1.97vw, 3.375rem));
+  text-transform: uppercase;
+  color: $black;
+}
+
+@mixin mainText() {
+  @include Inter(clamp(1.125rem, 1.081rem + 0.19vw, 1.25rem), $font-weight-regular, 22px);
+  color: $black;
+}
+
+@mixin headerNavAndUserAndFooter() {
+  @include Inter($font-size-small, $font-weight-regular, $line-height-small);
+  color: $black;
+}
+
+@mixin headerSmallFont() {
+  @include Inter(10px, $font-weight-regular, 12px);
+  color: $black;
+}
+
+@mixin pricePlansTitle() {
+  @include Inter(30px, 500, 36px);
+}
+
+@mixin oldPricePlansTitle() {
+  @include Inter(25px, 500, 36px);
+  color: rgb(187, 187, 187);
+}
+
+@mixin PricingPlansBtn() {
+  @include Inter($font-size-medium, 500, 26px);
+  color: $white;
+}
+
+@mixin pricePlansSubTitle() {
+  @include Inter($font-size-medium, 500, $line-height-medium);
+  color: $black;
+}
+
+@mixin FooterInfo() {
+  @include Inter($font-size-small, $font-weight-regular, 16px);
+  color: $white;
+}

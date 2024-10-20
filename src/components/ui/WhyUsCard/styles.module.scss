@@ -1,0 +1,28 @@
+.whyUsCard {
+    &__container {
+        border-radius: 10px;
+        border: none;
+        cursor: pointer;
+        width: 400px;
+        height: 225px;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); 
+        transition: box-shadow 0.3s ease; 
+        margin: 13px;
+      
+        &:hover {
+          box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+        }
+      }
+
+  &__image {
+    width: 64px;
+    padding: 30px 0 0 20px;
+  }
+
+  &__description {
+    padding: 20px 40px 0 20px;
+    @include mainText();
+  }
+}

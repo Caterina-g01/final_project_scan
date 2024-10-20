@@ -1,0 +1,55 @@
+.header {
+    &__container {
+        max-width: 1440px;
+        margin: 0 auto;
+        height: 93px;
+        background-color: $white;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__logo {
+        margin-left: 60px;
+        cursor: pointer;
+    }
+
+    &__navBar {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 49px;
+        @include headerNavAndUserAndFooter();
+    }
+
+    &__navBar__link {
+        cursor: pointer;
+    }
+
+    &__signUpBtn {
+      @include headerNavAndUserAndFooter();
+      background: none;         
+      padding: 0;        
+    }
+
+    &__separator {
+        width: 3px;            
+        height: 28px;          
+        background-color: $aquamarine; 
+        vertical-align: middle;
+    }
+
+    &__signInBtn {
+        @include headerNavAndUserAndFooter();
+        background: $aquamarine;
+        padding: 5px 10px;
+    }
+
+    &__buttons {
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 18px;
+        margin-right: 60px;
+    }
+}
+
+

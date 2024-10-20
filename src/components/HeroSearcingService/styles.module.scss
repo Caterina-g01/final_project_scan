@@ -1,0 +1,34 @@
+.heroSearcingService {
+
+    &__container {
+        margin: 0 auto;
+        max-width: 1440px;
+        display: flex;
+        flex-wrap: nowrap;
+    }
+
+&__content {
+    display: flex;
+    flex-direction: column;
+    margin-left: 60px;
+    margin-top: 60px
+}
+&__title {
+    @include heroSearchTitle();
+    
+}
+&__text {
+    margin-top: 20px;
+    @include heroSearchDescrAndPricingPlansBtns();
+}
+&__btn {
+    margin-top: 70px;
+    width: 335px;
+    height: 59px;
+    background-color: $violet;
+    @include heroSearchBtn();
+}
+&__img {
+    width: clamp(21.688rem, 15.482rem + 26.48vw, 39.313rem);
+}
+}

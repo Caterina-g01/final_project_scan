@@ -1,0 +1,38 @@
+.container {
+    width: 100%;
+    height: 137px;
+    background-color: $cyan;
+    margin: 0 auto;
+   
+}
+.content {
+    margin: 0 auto;
+    max-width: 1440px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo {
+}
+.logoImg {
+    cursor: pointer;
+}
+.footerInfo {
+    @include FooterInfo();
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 21px;
+}
+.footerOrgInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 3px;
+}
+.footerOrgInfo__item {
+    cursor: pointer;
+}
+.footerInfo__copyright {
+}

@@ -1,0 +1,25 @@
+.whyUsSection {
+    &__container {
+        max-width: 1440px;
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+        padding-top: 109px;
+    }
+    &__title {
+        @include mainTitles();
+        margin-left: 60px;
+        margin-bottom: 70px;
+    }
+    &__description {
+        @include mainText();
+    }
+    &__imgContainer {
+        display: flex;
+        justify-content: center;
+    }
+    &__img {
+      margin-top: 70px;
+      max-width: 1330px;
+    }
+}
