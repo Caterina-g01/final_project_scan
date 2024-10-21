@@ -32,5 +32,11 @@
   }
   &__btnSignUp {
     width: 213px;
+
+    
   }
 }
+.disabled {
+    color: $disabledGrey; 
+    border-color: $disabledGrey;
+  }

@@ -4,23 +4,42 @@ import classNames from 'classnames';
 import s from './styles.module.scss';
 import Button from '../Button/Button';
 import SignInWindow from '../../AutorizationWindows/SignInWindow/SignInWindow';
+import SignUpWindow from '../../AutorizationWindows/SignUpWindow/SignUpWindow';
 
 export default function Placeholder({ className }) {
-  const [showSignIn, setShowSignIn] = useState(false);
+  const [activeWindow, setActiveWindow] = useState('signIn'); 
 
   const handleSignInClick = () => {
-    setShowSignIn(true);
+    setActiveWindow('signIn');
   };
+
+  const handleSignUpClick = () => {
+    setActiveWindow('signUp'); 
+  };
+
+  const isSignInDisabled = activeWindow === 'signUp'; 
+  const isSignUpDisabled = activeWindow === 'signIn'; 
 
   return (
     <div className={classNames(s.placeholder__container, className)}>
-      <div className={s.placeholder__btnsContainer} >
-        <Button className={s.placeholder__btnSignIn} onClick={handleSignInClick}>
+      <div className={s.placeholder__btnsContainer}>
+        <Button 
+          className={classNames(s.placeholder__btnSignIn, { [s.disabled]: isSignInDisabled })} 
+          onClick={handleSignInClick}
+          disabled={isSignInDisabled} 
+        >
           Войти
         </Button>
-        <Button className={s.placeholder__btnSignUp}>Зарегистрироваться</Button>
+        <Button 
+          className={classNames(s.placeholder__btnSignUp, { [s.disabled]: isSignUpDisabled })} 
+          onClick={handleSignUpClick}
+          disabled={isSignUpDisabled} 
+        >
+          Зарегистрироваться
+        </Button>
       </div>
-      {showSignIn && <SignInWindow />}
+      {activeWindow === 'signIn' && <SignInWindow />}
+      {activeWindow === 'signUp' && <SignUpWindow />}
     </div>
   );
 }

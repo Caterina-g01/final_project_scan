@@ -28,9 +28,7 @@
 &__btn {
     margin-top: 70px;
     width: 335px;
-    height: 59px;
-    background-color: $violet;
-    @include heroSearchBtn();
+    @include violetBtn;
 }
 &__img {
     width: clamp(21.688rem, 15.482rem + 26.48vw, 39.313rem);

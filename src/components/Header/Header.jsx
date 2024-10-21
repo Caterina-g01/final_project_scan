@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom"; 
 import s from "./styles.module.scss";
 import logo from "../../assets/images/icons/Logo.svg";
 import Button from "../ui/Button/Button";
@@ -24,7 +25,9 @@ export default function Header() {
       <div className={s.header__buttons}>
         <Button className={s.header__signUpBtn}>Зарегистрироваться</Button>
         <div className={s.header__separator}></div>
-        <ButtonSignIn className={s.header__signInBtn}>Войти</ButtonSignIn>
+        <Link to="/auth">
+          <ButtonSignIn className={s.header__signInBtn}>Войти</ButtonSignIn>
+        </Link>
       </div>
       {isMenuOpen && <HeaderMenuMob className={s.headerMenuMob} />}
     </div>

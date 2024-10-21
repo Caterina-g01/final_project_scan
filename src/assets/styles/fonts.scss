@@ -85,12 +85,12 @@ $line-height-small: 17px;
 
 @mixin oldPricePlansTitle() {
   @include Inter(25px, 500, 36px);
-  color: rgb(187, 187, 187);
+  color: $disabledGrey;
 }
 
 @mixin signUpBtn() {
   @include Inter(16px, 400, 19px);
-  color: rgb(187, 187, 187);
+  color: $disabledGrey;
 }
 
 @mixin PricingPlansBtn() {
@@ -110,5 +110,5 @@ $line-height-small: 17px;
 
 @mixin autorizationTitles() {
   @include Inter(16px, $font-weight-regular, 19px);
-  color: rgb(187, 187, 187);
+  color: $disabledGrey;
 }

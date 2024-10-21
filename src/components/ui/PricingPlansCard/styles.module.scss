@@ -76,11 +76,9 @@ margin-bottom: 15px;
     width: 100%;
 }
 .cardButton {
-    background-color: $violet;
+    @include violetBtn;
     margin-top: 10px;
     width: 335px;
-    height: 59px;
-    @include PricingPlansBtn();
     overflow: hidden;
     position: relative;
     @media (max-width: 468px){
