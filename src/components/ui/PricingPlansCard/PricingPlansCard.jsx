@@ -42,13 +42,14 @@ export default function PricingPlansCard({
             </li>
           ))}
         </ul>
+        </div>
 
         <div className={s.button__container}>
           <Button className={s.cardButton}>
             {buttonText}
           </Button>
         </div>
-      </div>
+      
     </div>
   );
 }

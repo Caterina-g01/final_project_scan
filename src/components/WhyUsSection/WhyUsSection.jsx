@@ -9,7 +9,7 @@ export default function WhyUsSection() {
       <h1 className={s.whyUsSection__title}>Почему именно мы</h1>
       <AdvantagesSlider />
       <div className={s.whyUsSection__imgContainer}>
-      <img src={ImgWhy} className={s.whyUsSection__img} />
+     
       </div>
     </div>
   )

@@ -1,0 +1,82 @@
+
+.signInWindow__container {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+}
+.customInput {
+    width: 379px;
+    height: 43px;
+    border-radius: 5px;
+    padding-left: 10px;
+    border: 1px solid rgb(220, 220, 220);
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+
+    &:focus {
+        box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+        outline: none; 
+      }
+}
+
+.loginContainer, .passwordContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.loginTitle, .passwordTitle {
+    @include autorizationTitles();
+    
+}
+.signInBtn {
+    @include violetBtn();
+    width: 379px;
+}
+
+.forgotPasswordLink {
+    color: $violet;
+    text-decoration: underline;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: 'Inter', sans-serif;
+}
+
+.buttons__container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+.otherWaysToSignIn {
+    &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+   margin-left: 50px;
+}
+&__content {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 10px;
+}
+&__link {
+    border: 1px solid $violet;
+    border-radius: 5px;
+    padding: 3px 10px;
+    width: 96px;
+    height: 31px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+&__img {
+    width: 60px;
+}
+&__title {
+    @include autorizationTitles();
+}
+}

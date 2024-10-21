@@ -45,7 +45,23 @@ export default function AdvantagesSlider() {
     slidesToShow: 3,
     slidesToScroll: 1,
     centerMode: true,
-    centerPadding: "3px",
+    centerPadding: "1px",
+    responsive: [
+      {
+        breakpoint: 1360, 
+        settings: {
+          slidesToShow: 2, 
+          centerPadding: "1px",
+        }
+      },
+      {
+        breakpoint: 940, 
+        settings: {
+          slidesToShow: 1, 
+          centerPadding: "1px",
+        }
+      },
+    ]
   };
   return (
     <div className={s.advantagesSlider__container}>

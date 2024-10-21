@@ -1,9 +1,9 @@
 import React from 'react';
 import s from './styles.module.scss';
 import PricingPlansCard from '../ui/PricingPlansCard/PricingPlansCard';
-import ImgOne from '../../assets/images/icons/PricePlans1.svg';
-import ImgTwo from '../../assets/images/icons/PricePlans2.svg';
-import ImgThree from '../../assets/images/icons/PricePlans3.svg';
+import ImgOne from '../../assets/images/icons/PricePlans3.png';
+import ImgTwo from '../../assets/images/icons/PricePlans2.png';
+import ImgThree from '../../assets/images/icons/PricePlans1.png';
 
 export default function PricingPlans() {
   const plans = [
@@ -50,6 +50,7 @@ export default function PricingPlans() {
       titleDescription: 'Для корпоративных клиентов',
       price: '2 379 ₽',
       oldPrice: '3 700 ₽',
+      priceDescription: 'или 300 ₽/мес. при рассрочке на 24 мес.',
       descriptionTitle: 'В тариф входит:',
       description: [
         'Все пункты тарифа Pro',

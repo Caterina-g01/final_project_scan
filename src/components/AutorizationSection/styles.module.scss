@@ -1,0 +1,46 @@
+.autorizationSection {
+    &__container {
+        max-width: 1440px;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        margin: 0 auto;
+        padding: 69 clamp(0.938rem, -0.053rem + 4.23vw, 3.75rem) 80px clamp(0.938rem, -0.053rem + 4.23vw, 3.75rem);
+
+        @media (max-width: 864px){
+            align-items: center;
+            flex-direction: column;
+           }
+    }
+
+    &__placeholderBlock {
+        width: 429px;
+    }
+
+&__titleBlock {
+    width: 66%;
+    display: flex;
+    flex-direction: column;
+
+    @media (max-width: 864px){
+        width: 100%;
+        margin-bottom: 120px;
+       }
+    
+}
+
+&__img {
+    width: 320px;
+    margin-left: 10vw;
+
+    @media (max-width: 864px){
+        display: none;
+       }
+}
+&__title {
+    width: 100%;
+    @include mainTitles();
+
+    
+}
+}

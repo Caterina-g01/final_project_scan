@@ -1,12 +1,17 @@
 .advantagesSlider__container {
-    width: 80vw;
+    max-width: 1300px;
     margin: 0 auto;
-
  position: relative;
  height: fit-content;
-
- 
-
+ @media (max-width: 1360px){
+    max-width: 860px;
+   }
+   @media (max-width: 940px){
+    max-width: 430px;
+   }
+   @media (max-width: 496px){
+    max-width: 320px;
+   }
 }
 .arrowPrev {
     position: absolute;
@@ -15,6 +20,10 @@
     height: 39px;
     z-index: 100;
     cursor: pointer;
+
+    @media (max-width: 496px){
+        left: -5px;
+       }
 }
 
 .arrowNext{

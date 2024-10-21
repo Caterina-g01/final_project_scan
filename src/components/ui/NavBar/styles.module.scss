@@ -1,0 +1,14 @@
+.navBar {
+        
+
+           &__link {
+            cursor: pointer;
+
+            &:hover {
+                color: $aquamarine;
+            }
+           }
+    }
+    
+
+

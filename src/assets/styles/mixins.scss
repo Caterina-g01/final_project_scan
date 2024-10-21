@@ -1,0 +1,15 @@
+@mixin violetBtn {
+    height: 59px;
+    background-color: $violet;
+    border: none;
+    border-radius: 5px; 
+    padding: 0 20px; 
+    cursor: pointer;
+    @include heroSearchBtn();
+
+    &.disabled {
+        background-color: $disabledBtn; 
+        cursor: not-allowed;
+        opacity: 0.5; 
+    }
+}

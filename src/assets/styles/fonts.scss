@@ -88,6 +88,11 @@ $line-height-small: 17px;
   color: rgb(187, 187, 187);
 }
 
+@mixin signUpBtn() {
+  @include Inter(16px, 400, 19px);
+  color: rgb(187, 187, 187);
+}
+
 @mixin PricingPlansBtn() {
   @include Inter($font-size-medium, 500, 26px);
   color: $white;
@@ -101,4 +106,9 @@ $line-height-small: 17px;
 @mixin FooterInfo() {
   @include Inter($font-size-small, $font-weight-regular, 16px);
   color: $white;
+}
+
+@mixin autorizationTitles() {
+  @include Inter(16px, $font-weight-regular, 19px);
+  color: rgb(187, 187, 187);
 }

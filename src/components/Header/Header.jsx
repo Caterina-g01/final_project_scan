@@ -1,23 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import s from "./styles.module.scss";
 import logo from "../../assets/images/icons/Logo.svg";
 import Button from "../ui/Button/Button";
-import classNames from "classnames";
+import NavBar from "../ui/NavBar/NavBar";
+import BurgerButton from "../ui/BurgerButton/BurgerButton";
+import HeaderMenuMob from "../ui/HeaderMenuMob/HeaderMenuMob";
+import ButtonSignIn from "../ui/ButtonSignIn/ButtonSignIn";
 
 export default function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
     <div className={s.header__container}>
       <img src={logo} className={s.header__logo} alt="SCAN" />
-      <ul className={s.header__navBar}>
-        <li className={s.header__navBar__link}>Главная</li>
-        <li className={s.header__navBar__link}>Тарифы</li>
-        <li className={s.header__navBar__link}>FAQ</li>
-      </ul>
-      <div className={s.header__buttons}>
-      <Button className={s.header__signUpBtn}>Зарегистрироваться</Button>
-      <div className={s.header__separator}></div>
-      <Button className={s.header__signInBtn}>Войти</Button>
+      <div className={s.header__burger}>
+        <BurgerButton isOpen={isMenuOpen} toggleMenu={toggleMenu} />
       </div>
+      <NavBar className={s.header__navBar} />
+      <div className={s.header__buttons}>
+        <Button className={s.header__signUpBtn}>Зарегистрироваться</Button>
+        <div className={s.header__separator}></div>
+        <ButtonSignIn className={s.header__signInBtn}>Войти</ButtonSignIn>
+      </div>
+      {isMenuOpen && <HeaderMenuMob className={s.headerMenuMob} />}
     </div>
   );
 }

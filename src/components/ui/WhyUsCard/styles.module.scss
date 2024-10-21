@@ -9,11 +9,16 @@
         flex-direction: column;
         box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); 
         transition: box-shadow 0.3s ease; 
-        margin: 13px;
+        margin: 22px 0 22px 11px;
       
         &:hover {
           box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
         }
+
+        @media (max-width: 496px){
+            width: 298px;
+            height: 188px;
+           }
       }
 
   &__image {
@@ -24,5 +29,9 @@
   &__description {
     padding: 20px 40px 0 20px;
     @include mainText();
+
+    @media (max-width: 496px){
+      padding: 5px 5px 0 10px;
+     }
   }
 }

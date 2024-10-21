@@ -5,13 +5,17 @@
         max-width: 1440px;
         display: flex;
         flex-wrap: nowrap;
+        @media (max-width: 864px){
+            flex-direction: column;
+           }
     }
 
 &__content {
     display: flex;
     flex-direction: column;
-    margin-left: 60px;
-    margin-top: 60px
+    margin-left: clamp(0.938rem, -0.053rem + 4.23vw, 3.75rem);
+    margin-top: 60px;
+    margin-right: clamp(0.938rem, -0.053rem + 4.23vw, 3.75rem);
 }
 &__title {
     @include heroSearchTitle();
@@ -30,5 +34,9 @@
 }
 &__img {
     width: clamp(21.688rem, 15.482rem + 26.48vw, 39.313rem);
+    height: inherit;
+    @media (max-width: 864px){
+        margin: 0 auto;
+       }
 }
 }

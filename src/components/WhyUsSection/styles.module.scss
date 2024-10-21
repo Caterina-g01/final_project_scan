@@ -4,22 +4,34 @@
         display: flex;
         flex-direction: column;
         margin: 0 auto;
-        padding-top: 109px;
+        padding-top: clamp(3.438rem, 2.249rem + 5.07vw, 6.813rem);
     }
     &__title {
         @include mainTitles();
-        margin-left: 60px;
-        margin-bottom: 70px;
+        margin-left: clamp(0.938rem, -0.053rem + 4.23vw, 3.75rem);
+        margin-bottom: clamp(0.938rem, -0.273rem + 5.16vw, 4.375rem);
+        width: 70%;
     }
     &__description {
         @include mainText();
     }
     &__imgContainer {
+        margin-top: clamp(2rem, 1.164rem + 3.57vw, 4.375rem);
+        max-width: 1440px;
+        height: 40vw;
         display: flex;
         justify-content: center;
+        background-image: url(../../assets/images/WhyUsDesctop.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 90%;
+        @media (max-width: 864px){
+            background-image: url(../../assets/images/WhyUsMob.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 110vw;
+        height: 110vw;
+        }
     }
-    &__img {
-      margin-top: 70px;
-      max-width: 1330px;
-    }
+
 }

@@ -1,0 +1,36 @@
+.placeholder {
+  &__container {
+    max-width: 429px;
+    height: 523px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding-top: 25px;
+  }
+
+  &__btnsContainer {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  &__btnSignIn, &__btnSignUp {
+    
+    background-color: transparent;
+    color: $cyan;
+    font-size: 16px;
+    border: none;
+    border-bottom: 2px solid $cyan;
+    border-radius: 0px;
+    padding-bottom: 10px;
+    cursor: pointer;
+  }
+
+  &__btnSignIn {
+    width: 151px;
+  }
+  &__btnSignUp {
+    width: 213px;
+  }
+}
