@@ -1,111 +1,141 @@
 .container {
-    width: 415px;
-    height: 540px;
-    border-radius: 5px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    position: relative;
+  width: 415px;
+  height: 540px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
 
-    @media (max-width: 1390px){
-        width: clamp(20.938rem, 7.891rem + 55.67vw, 56.25rem);
-       }
+  @media (max-width: 1390px) {
+    width: clamp(21.875rem, 20.374rem + 6.4vw, 25.938rem);
+
+    @media (max-width: 375px) {
+    }
+  }
 }
 .title__container {
-    height: 132px;
-    padding: 30px 5px 20px 20px;
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    border-radius: 8px 8px 0 0;
+  height: 132px;
+  padding: 30px 5px 20px 20px;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  border-radius: 8px 8px 0 0;
 }
 
 .cardTitle__container {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 .title__title {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 .rateDescription {
-    padding: 30px 10px 20px 30px;
+  padding: 30px 10px 20px 30px;
+
+  @media (max-width: 670px) {
+    padding-left: 10px;
+  }
 }
 .cardTitle {
-    @include pricePlansTitle();
+  @include pricePlansTitle();
 }
 .titleDescription {
-    @include  mainText();
+  @include mainText();
 }
 .title__img {
 }
 .image {
-    width: 85px;
+  width: 85px;
 }
 .price__container {
-    display: flex;
-    flex-wrap: nowrap;
-    gap: 20px;
-    margin-bottom: 15px;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 20px;
+  margin-bottom: 15px;
 }
 .price {
-    @include pricePlansTitle();
+  @include pricePlansTitle();
 }
 .oldPrice {
-    @include oldPricePlansTitle();
-    text-decoration: line-through;
+  @include oldPricePlansTitle();
+  text-decoration: line-through;
 }
 .priceDescription {
-    @include  mainText();
-    margin-bottom: 60px;
+  @include mainText();
+  margin-bottom: 60px;
 }
 .descriptionTitle {
-@include pricePlansSubTitle();
-margin-bottom: 15px;
+  @include pricePlansSubTitle();
+  margin-bottom: 15px;
 }
 .description {
-    @include  mainText();
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
+  @include mainText();
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
 .button__container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
 .cardButton {
-    @include violetBtn;
-    margin-top: 10px;
-    width: 335px;
-    overflow: hidden;
-    position: relative;
-    @media (max-width: 468px){
-        width: 286px;
-       }
-  
-    &:before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -100%; 
-        width: 10%; 
-        height: 100%;
-        background-color: rgba(#fff, 0.3); 
-        transform: skewX(-45deg);
-        transition: left 0.5s ease; 
-      }
-    
-      &:hover:before,
-      &:active:before {
-        left: 120%;
-      }
-    }
-    .active {
-        border: 2px solid $orange;
-      }
+  @include violetBtn;
+  margin-top: 10px;
+  width: 335px;
+  overflow: hidden;
+  position: relative;
+  @media (max-width: 468px) {
+    width: 286px;
+  }
 
-      .activeBtn {
-        background-color: $disabledGrey;
-      }
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 10%;
+    height: 100%;
+    background-color: rgba(#fff, 0.3);
+    transform: skewX(-45deg);
+    transition: left 0.5s ease;
+  }
+
+  &:hover:before,
+  &:active:before {
+    left: 120%;
+  }
+}
+.active {
+  border: 2px solid $orange;
+}
+
+.activeBtn {
+  background-color: $disabledGrey;
+  color: black;
+}
+.checkMarkImg {
+  padding-right: 5px;
+}
+.activeTag {
+  position: absolute;
+  top: 150px;
+  right: 10px;
+  width: 134px;
+  height: 24px;
+  background-color: #3ba5e0;
+  border-radius: 10px;
+  color: white;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: center;
+  padding-top: 3px;
+
+  @media (max-width: 468px) {
+    display: none;
+  }
+}

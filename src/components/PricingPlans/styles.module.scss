@@ -1,33 +1,34 @@
 .pricingPlans {
+  &__container {
+    padding-top: 107px;
+    max-width: 1440px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+  }
 
-    &__container {
-        padding-top: 107px;
-        max-width: 1440px;
-        margin: 0 auto;
-       display: flex;
-       flex-direction: column;
+  &__content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0 60px 50px 60px;
+
+    @media (max-width: 1390px) {
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+      margin: 0 7px 50px 7px;
+
+      @media (max-width: 375px) {
+        margin-right: 0;
+        margin-left: 0;
+      }
     }
+  }
 
-    &__content {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        margin: 0 60px 50px 60px;
-
-        @media (max-width: 1390px){
-            flex-direction: column;
-            align-items: center;
-            gap: 40px;
-            margin: 0 7px 50px 7px;
-           }
-    }
-    
-    &__title {
-        @include mainTitles();
-        margin-bottom: clamp(2.313rem, 1.586rem + 3.1vw, 4.375rem);
-        margin-left: clamp(0.938rem, -0.053rem + 4.23vw, 3.75rem);
-    }
-
-
+  &__title {
+    @include mainTitles();
+    margin-bottom: clamp(2.313rem, 1.586rem + 3.1vw, 4.375rem);
+    margin-left: clamp(0.938rem, -0.053rem + 4.23vw, 3.75rem);
+  }
 }
-

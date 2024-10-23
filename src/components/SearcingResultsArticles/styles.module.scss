@@ -1,39 +1,45 @@
 .searcingResultsArticles {
+  &__container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 107px clamp(0.875rem, -0.137rem + 4.32vw, 3.75rem)
+      clamp(3.563rem, 1.07rem + 10.63vw, 6.813rem)
+      clamp(0.875rem, -0.137rem + 4.32vw, 3.75rem);
 
-    &__container {
-        max-width: 1440px;
-        margin: 0 auto;
-        padding: 107px clamp(0.875rem, -0.137rem + 4.32vw, 3.75rem) clamp(3.563rem, 1.07rem + 10.63vw, 6.813rem) clamp(0.875rem, -0.137rem + 4.32vw, 3.75rem);
+    @media (max-width: 375px) {
+      padding-top: 60px;
     }
-    &__content {
-        width: 100%;
-        padding: 58px 0 0 0;
-        gap: 40px;
-        display: grid;
-        grid-template-columns: repeat(2, 1fr); 
-        justify-content: space-between;
-        margin: 0 auto;
+  }
+  &__content {
+    width: 100%;
+    padding: 58px 0 0 0;
+    gap: 40px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: space-between;
+    margin: 0 auto;
 
-        @media (max-width: 864px){
-            display: flex;
-            flex-direction: column;
-           }
-    }
-    &__title {
-        @include searcingResultsTitle();
-    }
-
-    &__showMoreBtnContainer {
-        width: 100%;
-        display: flex;
-        justify-content: center;
+    @media (max-width: 864px) {
+      display: flex;
+      flex-direction: column;
     }
 
-    &__showMoreBtn {
-        @include violetBtn;
-        width: 335px;
+    @media (max-width: 375px) {
+      padding-top: 40px;
     }
+  }
+  &__title {
+    @include searcingResultsTitle();
+  }
+
+  &__showMoreBtnContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__showMoreBtn {
+    @include violetBtn;
+    width: 335px;
+  }
 }
-
-
-

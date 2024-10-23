@@ -1,42 +1,51 @@
 .headerMenuMob {
-    &__container {
-width: 375px;
-height: 400px;
-background-color: $cyan;
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-z-index: 1000;
-    }
+  &__container {
+    width: 375px;
+    height: 400px;
+    background-color: $cyan;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
 
-    &__navBar {
-        display: flex;
-        flex-direction: column;
-        gap: 26px;
-        @include  FooterInfo();
-    }
+  &__navBar {
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+    @include FooterInfo();
+  }
 
-    &__navBtns {
-        display: flex;
-        flex-direction: column;
-        gap: 26px;
-        margin-top: 75px;
-    }
+  &__navBtns {
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+    margin-top: 75px;
+  }
 
-    &__signInBtn {
-        @include  pricePlansSubTitle();
-        width: 295px;
-        height: 52px;
-        border-radius: 5px;
-        background-color: $aquamarine;
-        cursor: pointer;
-    }
+  &__signInBtn {
+    @include pricePlansSubTitle();
+    width: 295px;
+    height: 52px;
+    border-radius: 5px;
+    background-color: $aquamarine;
+    cursor: pointer;
+  }
 
-    &__signUpBtn {
-        border: none;
-        background-color: transparent;
-        cursor: pointer;
-        @include signUpBtn();
-    }
+  &__signUpBtn {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    @include signUpBtn();
+  }
+
+  &__signOutBtn {
+    @include pricePlansSubTitle();
+    width: 295px;
+    height: 52px;
+    border-radius: 5px;
+    background-color: $aquamarine;
+    cursor: pointer;
+  }
 }

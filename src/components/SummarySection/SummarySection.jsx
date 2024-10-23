@@ -46,6 +46,7 @@ export default function SummarySection({ searchParams }) {
 
   return (
     <div className={s.summarySection__container}>
+      <div className={s.summarySection__title}>Общая сводка</div>
       {loading ? (
         <div>Загрузка...</div>
       ) : error ? (
@@ -55,7 +56,7 @@ export default function SummarySection({ searchParams }) {
           Найдено {totalDocuments} вариантов
         </div>
       )}
-      <div className={s.summarySection__title}>Общая сводка</div>
+
       <SummarySliderContainer />
     </div>
   );

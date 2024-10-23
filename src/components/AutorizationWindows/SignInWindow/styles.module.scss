@@ -54,6 +54,11 @@
     gap: 15px;
     width: 100%;
     margin-left: 50px;
+
+    @media (max-width: 864px) {
+      width: fit-content;
+      margin-left: 0;
+    }
   }
   &__content {
     display: flex;
@@ -75,6 +80,5 @@
   }
   &__title {
     @include autorizationTitlesAndCardNews();
-
   }
 }

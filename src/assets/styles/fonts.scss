@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap");
 
 $font-size-large: clamp(1.75rem, 1.046rem + 3vw, 3.75rem);
 $font-size-medium: 20px;
@@ -10,29 +9,25 @@ $line-height-large: clamp(2.063rem, 1.204rem + 3.66vw, 4.5rem);
 $line-height-medium: 24px;
 $line-height-small: 17px;
 
-
 @mixin responsive-font($size) {
   @media (max-width: 576px) {
     font-size: $size;
   }
 }
 
-
 @mixin Inter($font-size, $font-weight, $line-height) {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: $font-size;
   font-weight: $font-weight;
   line-height: $line-height;
 }
-
 
 @mixin Ferry($font-size, $font-weight, $line-height) {
-  font-family: 'Ferry', sans-serif;
+  font-family: "Ferry", sans-serif;
   font-size: $font-size;
   font-weight: $font-weight;
   line-height: $line-height;
 }
-
 
 @font-face {
   font-family: "Ferry";
@@ -40,7 +35,6 @@ $line-height-small: 17px;
   font-weight: 900;
   font-style: normal;
 }
-
 
 @mixin heroSearchTitle() {
   @include Ferry($font-size-large, $font-weight-bold, $line-height-large);
@@ -51,6 +45,10 @@ $line-height-small: 17px;
 @mixin heroSearchDescrAndPricingPlansBtns() {
   @include Inter($font-size-medium, $font-weight-regular, $line-height-medium);
   color: $black;
+
+  @media (max-width: 375px) {
+    font-size: 18px;
+  }
 }
 
 @mixin heroSearchBtn() {
@@ -59,7 +57,11 @@ $line-height-small: 17px;
 }
 
 @mixin mainTitles() {
-  @include Ferry(clamp(1.75rem, 1.376rem + 1.6vw, 2.813rem), $font-weight-bold, clamp(2.063rem, 1.6rem + 1.97vw, 3.375rem));
+  @include Ferry(
+    clamp(1.75rem, 1.376rem + 1.6vw, 2.813rem),
+    $font-weight-bold,
+    clamp(2.063rem, 1.6rem + 1.97vw, 3.375rem)
+  );
   text-transform: uppercase;
   color: $black;
 }
@@ -114,17 +116,29 @@ $line-height-small: 17px;
 }
 
 @mixin cardNewsTitle() {
-  @include Inter(clamp(1.188rem, 1.033rem + 0.66vw, 1.625rem), 500, clamp(1.438rem, 1.261rem + 0.75vw, 1.938rem));
+  @include Inter(
+    clamp(1.188rem, 1.033rem + 0.66vw, 1.625rem),
+    500,
+    clamp(1.438rem, 1.261rem + 0.75vw, 1.938rem)
+  );
   color: $black;
 }
 
 @mixin cardNewsText() {
-  @include Inter(clamp(0.75rem, 0.662rem + 0.38vw, 1rem), $font-weight-regular, clamp(0.906rem, 0.807rem + 0.42vw, 1.188rem));
+  @include Inter(
+    clamp(0.75rem, 0.662rem + 0.38vw, 1rem),
+    $font-weight-regular,
+    clamp(0.906rem, 0.807rem + 0.42vw, 1.188rem)
+  );
   color: $disabledGrey;
 }
 
 @mixin searcingResultsTitle() {
-  @include Ferry(clamp(1.75rem, 1.654rem + 0.41vw, 1.875rem), $font-weight-bold, 34px);
+  @include Ferry(
+    clamp(1.75rem, 1.654rem + 0.41vw, 1.875rem),
+    $font-weight-bold,
+    34px
+  );
   text-transform: uppercase;
   color: $black;
 }

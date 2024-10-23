@@ -7,12 +7,29 @@
     padding: 36px 44px;
     display: flex;
     flex-direction: column;
+
+    @media (max-width: 1320px) {
+      width: 90vw;
+    }
+    @media (max-width: 420px) {
+      padding: 15px 10px;
+    }
   }
 
   &__contentOne {
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-between;
+
+    @media (max-width: 1320px) {
+      width: 100%;
+    }
+  }
+
+  &__inputs {
+    @media (max-width: 1320px) {
+      width: 100%;
+    }
   }
   &__input {
     &__tone,
@@ -22,6 +39,10 @@
       flex-direction: column;
       gap: 20px;
       padding-bottom: 30px;
+
+      @media (max-width: 375px) {
+        padding-bottom: 20px;
+      }
     }
 
     &__title {
@@ -38,6 +59,12 @@
       justify-content: space-between;
       width: 372px;
       margin-top: 20px;
+
+      @media (max-width: 1320px) {
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+      }
     }
     &__dateAndTitle {
       display: flex;
@@ -49,6 +76,13 @@
     flex-wrap: nowrap;
     justify-content: space-between;
     margin-top: clamp(1.313rem, 1.114rem + 0.85vw, 1.875rem);
+
+    @media (max-width: 1320px) {
+      flex-direction: column;
+    }
+    @media (max-width: 375px) {
+      margin-top: 0;
+    }
   }
 
   &__btn {
@@ -60,15 +94,29 @@
     flex-direction: column;
     gap: 10px;
     margin-top: 40px;
+
+    @media (max-width: 1320px) {
+      align-items: center;
+    }
   }
   &__required {
     @include inputPlaceholder();
+  }
+
+  &__checkboxs {
+    @media (max-width: 1320px) {
+      display: none;
+    }
   }
 }
 
 .customInput {
   width: 242px;
   text-align: center;
+
+  @media (max-width: 1320px) {
+    width: 100%;
+  }
 }
 
 .error {
@@ -88,10 +136,18 @@
   border: 1px solid $disabledGrey;
   width: 176px;
   @include inputText();
+
+  @media (max-width: 1320px) {
+    width: 100%;
+  }
 }
 
 .dropdown__select {
   width: 242px;
+
+  @media (max-width: 1320px) {
+    width: 100%;
+  }
 }
 
 .dropdown__content {

@@ -1,36 +1,41 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import s from './styles.module.scss';
-import Button from '../Button/Button';
+import React from "react";
+import PropTypes from "prop-types";
+import s from "./styles.module.scss";
+import Button from "../Button/Button";
+import checkMarkImg from "../../../assets/images/icons/checkMark.png";
 
-export default function PricingPlansCard({ 
-  imageSrc, 
-  titleDescription, 
-  price, 
-  oldPrice, 
-  cardTitle, 
-  priceDescription, 
-  descriptionTitle, 
-  description, 
+export default function PricingPlansCard({
+  imageSrc,
+  titleDescription,
+  price,
+  oldPrice,
+  cardTitle,
+  priceDescription,
+  descriptionTitle,
+  description,
   buttonText,
   containerBorderColor,
-  backgroundColor, 
+  backgroundColor,
   color,
-  isActive, 
+  isActive,
 }) {
   return (
-    <div 
-      className={`${s.container} ${isActive ? s.active : ''}`} 
+    <div
+      className={`${s.container} ${isActive ? s.active : ""}`}
       style={{ borderColor: containerBorderColor }}
     >
       <div className={s.title__container} style={{ backgroundColor }}>
         <div className={s.cardTitle__container} style={{ color }}>
           <h3 className={s.cardTitle}>{cardTitle}</h3>
-          <p className={s.titleDescription} style={{ color }}>{titleDescription}</p>
+          <p className={s.titleDescription} style={{ color }}>
+            {titleDescription}
+          </p>
         </div>
         <img src={imageSrc} alt={cardTitle} className={s.image} />
       </div>
-      
+
+      {isActive && <div className={s.activeTag}>Текущий тариф</div>}
+
       <div className={s.rateDescription}>
         <div className={s.price__container}>
           <p className={s.price}>{price}</p>
@@ -38,19 +43,25 @@ export default function PricingPlansCard({
         </div>
         <p className={s.priceDescription}>{priceDescription}</p>
         <p className={s.descriptionTitle}>{descriptionTitle}</p>
-        
+
         <ul className={s.description}>
-          {Array.isArray(description) && description.map((item, index) => (
-            <li key={index} className={s.descriptionItem}>
-              {item}
-            </li>
-          ))}
+          {Array.isArray(description) &&
+            description.map((item, index) => (
+              <li key={index} className={s.descriptionItem}>
+                <img
+                  src={checkMarkImg}
+                  alt="Check mark"
+                  className={s.checkMarkImg}
+                />
+                {item}
+              </li>
+            ))}
         </ul>
       </div>
 
       <div className={s.button__container}>
-      <Button className={`${s.cardButton} ${isActive ? s.activeBtn : ''}`}>
-          {isActive ? 'Перейти в личный кабинет' : buttonText}
+        <Button className={`${s.cardButton} ${isActive ? s.activeBtn : ""}`}>
+          {isActive ? "Перейти в личный кабинет" : buttonText}
         </Button>
       </div>
     </div>
@@ -67,8 +78,8 @@ PricingPlansCard.propTypes = {
   descriptionTitle: PropTypes.string.isRequired,
   description: PropTypes.arrayOf(PropTypes.string).isRequired,
   buttonText: PropTypes.string.isRequired,
-  containerBorderColor: PropTypes.string.isRequired, 
-  backgroundColor: PropTypes.string.isRequired, 
+  containerBorderColor: PropTypes.string.isRequired,
+  backgroundColor: PropTypes.string.isRequired,
   color: PropTypes.string.isRequired,
   isActive: PropTypes.bool,
 };
