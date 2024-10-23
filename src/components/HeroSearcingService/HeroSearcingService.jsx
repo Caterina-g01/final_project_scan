@@ -1,11 +1,17 @@
 import React from "react";
+import { useNavigate } from "react-router-dom"; 
 import s from "./styles.module.scss";
 import Button from "../ui/Button/Button";
-import HeroImg from "../../assets/images/HeroSectionPic.png";
+import HeroImg from "../../assets/images/HeroSectionPic.svg";
 import { useAuth } from "../../context/AuthContext"; 
 
 export default function HeroSearcingService() {
   const { isAuthenticated } = useAuth();
+  const navigate = useNavigate(); 
+
+  const handleButtonClick = () => {
+    navigate('/search'); 
+  };
 
   return (
     <div className={s.heroSearcingService__container}>
@@ -14,10 +20,10 @@ export default function HeroSearcingService() {
           сервис по поиску публикаций <br />о компании <br /> по его ИНН
         </h1>
         <div className={s.heroSearcingService__text}>
-          Комплексный анализ публикаций, получение данных  <br />в формате PDF на электронную почту.
+          Комплексный анализ публикаций, получение данных <br />в формате PDF на электронную почту.
         </div>
-        {isAuthenticated && ( 
-          <Button className={s.heroSearcingService__btn}>
+        {isAuthenticated && (
+          <Button className={s.heroSearcingService__btn} onClick={handleButtonClick}>
             Запросить данные
           </Button>
         )}

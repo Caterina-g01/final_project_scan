@@ -1,0 +1,28 @@
+.searchSection {
+  &__container {
+    max-width: 1440px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    padding: clamp(1.938rem, 1.101rem + 3.57vw, 4.313rem), clamp(0.938rem, -0.053rem + 4.23vw, 3.75rem), 0, clamp(0.938rem, -0.053rem + 4.23vw, 3.75rem);
+  }
+  &__title {
+    @include mainTitles();
+    width: 50%;
+    margin-bottom: clamp(1.188rem, 1.055rem + 0.56vw, 1.563rem);
+  }
+
+  &__subTitle {
+    @include heroSearchDescrAndPricingPlansBtns();
+    margin-bottom: clamp(1.313rem, 0.74rem + 2.44vw, 2.938rem);
+  }
+  &__content {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    margin-bottom: 64px;
+  }
+  &__img {
+    width: clamp(23.688rem, 22.301rem + 5.92vw, 27.625rem);
+  }
+}

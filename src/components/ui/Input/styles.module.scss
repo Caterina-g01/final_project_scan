@@ -1,3 +1,31 @@
-.input__container {
-   
-}
+.input {
+    height: 43px;
+    border-radius: 5px;
+    padding-left: 10px;
+    border: 1px solid rgb(220, 220, 220);
+    @include inputText();
+    
+
+  
+    &:focus {
+      outline: none;
+    }
+    &::placeholder {
+      @include inputPlaceholder();
+    }
+  
+ 
+    &:focus::placeholder {
+      color: transparent; 
+    }
+  }
+  
+  .error {
+    color: red; 
+  }
+  
+
+  
+
+  
+

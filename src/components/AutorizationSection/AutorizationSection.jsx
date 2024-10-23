@@ -1,7 +1,7 @@
 import React from 'react'
 import s from './styles.module.scss'
 import Placeholder from '../ui/Placeholder/Placeholder'
-import Img from '../../assets/images/AutorizationImg.png'
+import Img from '../../assets/images/AutorizationImg.svg'
 
 export default function AutorizationSection() {
   return (

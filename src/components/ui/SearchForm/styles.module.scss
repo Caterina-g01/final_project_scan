@@ -1,0 +1,106 @@
+.searchForm {
+  &__container {
+    width: 872px;
+    min-height: 543px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 36px 44px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__contentOne {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+  &__input {
+    &__tone,
+    &__numDocs,
+    &__InnNum {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding-bottom: 30px;
+    }
+
+    &__title {
+      @include mainText();
+    }
+    &__ranges {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    &__dates {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      width: 372px;
+      margin-top: 20px;
+    }
+    &__dateAndTitle {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+  &__contentTwo {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    margin-top: clamp(1.313rem, 1.114rem + 0.85vw, 1.875rem);
+  }
+
+  &__btn {
+    @include violetBtn;
+    width: 305px;
+  }
+  &__btnBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 40px;
+  }
+  &__required {
+    @include inputPlaceholder();
+  }
+}
+
+.customInput {
+  width: 242px;
+  text-align: center;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+  font-family: "Inter", sans-serif;
+}
+
+.inputError {
+  color: red;
+  border-color: red;
+  box-shadow: 0 0 5px rgba(255, 0, 0, 0.3);
+}
+
+.dropdown__selectDate,
+.dropdown__select {
+  border: 1px solid $disabledGrey;
+  width: 176px;
+  @include inputText();
+}
+
+.dropdown__select {
+  width: 242px;
+}
+
+.dropdown__content {
+  width: 220px;
+  padding: 10px;
+}
+
+.dropdownError {
+  color: red;
+  border-color: red;
+  box-shadow: 0 0 5px rgba(255, 0, 0, 0.3);
+}

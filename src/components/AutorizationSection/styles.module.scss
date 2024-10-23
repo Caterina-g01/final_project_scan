@@ -1,58 +1,56 @@
 .autorizationSection {
-    &__container {
-        max-width: 1440px;
-        display: flex;
-        flex-wrap: nowrap;
-        justify-content: space-between;
-        margin: 0 auto;
-        padding: clamp(1.875rem, 0.006rem + 7.98vw, 4.313rem) clamp(0.938rem, -0.053rem + 4.23vw, 3.75rem) 80px clamp(0.938rem, -0.053rem + 4.23vw, 3.75rem);
+  &__container {
+    max-width: 1440px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: clamp(1.875rem, 0.006rem + 7.98vw, 4.313rem)
+      clamp(0.938rem, -0.053rem + 4.23vw, 3.75rem) 80px
+      clamp(0.938rem, -0.053rem + 4.23vw, 3.75rem);
 
-        @media (max-width: 864px){
-            align-items: center;
-            flex-direction: column;
-           }
+    @media (max-width: 864px) {
+      align-items: center;
+      flex-direction: column;
     }
+  }
 
-    &__placeholderBlock {
-       display: flex;
-       flex-direction: column;
-       align-items: center;
-    }
+  &__placeholderBlock {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
-&__titleBlock {
+  &__titleBlock {
     width: 66%;
     display: flex;
     flex-direction: column;
 
-    @media (max-width: 864px){
-        width: 100%;
-        margin-bottom: 120px;
-       }
-    
-}
+    @media (max-width: 864px) {
+      width: 100%;
+      margin-bottom: 120px;
+    }
+  }
 
-&__img {
+  &__img {
     width: 320px;
     margin-left: 10vw;
 
-    @media (max-width: 864px){
-        display: none;
-       }
+    @media (max-width: 864px) {
+      display: none;
     }
-    &__mobImg {
-        display: none;
-        width: 75vw;
-        @media (max-width: 864px){
-            padding: 49px 15px 0 15px;
-            display: flex;
-           }
+  }
+  &__mobImg {
+    display: none;
+    width: 75vw;
+    @media (max-width: 864px) {
+      padding: 49px 15px 0 15px;
+      display: flex;
     }
+  }
 
-      
-&__title {
+  &__title {
     width: 100%;
     @include mainTitles();
-
-    
-}
+  }
 }

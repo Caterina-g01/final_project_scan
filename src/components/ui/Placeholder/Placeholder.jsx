@@ -5,7 +5,7 @@ import s from './styles.module.scss';
 import Button from '../Button/Button';
 import SignInWindow from '../../AutorizationWindows/SignInWindow/SignInWindow';
 import SignUpWindow from '../../AutorizationWindows/SignUpWindow/SignUpWindow';
-import Lock from '../../../assets/images/icons/Lock.png';
+import Lock from '../../../assets/images/icons/Lock.svg';
 
 export default function Placeholder({ className }) {
   const [activeWindow, setActiveWindow] = useState('signIn'); 

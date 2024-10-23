@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import s from './styles.module.scss';
 
-export default function Input({ className, placeholder, value, onChange, pattern, type }) {
+export default function Input({ className, placeholder, value, onChange, type }) {
   return (
     <div className={s.input__container}>
       <input
@@ -12,7 +12,6 @@ export default function Input({ className, placeholder, value, onChange, pattern
         placeholder={placeholder}
         value={value}
         onChange={onChange}
-        pattern={pattern}
       />
     </div>
   );
@@ -23,7 +22,6 @@ Input.propTypes = {
   placeholder: PropTypes.string,
   value: PropTypes.string,
   onChange: PropTypes.func.isRequired,
-  pattern: PropTypes.string,
   type: PropTypes.string.isRequired,
 };
 
@@ -31,6 +29,5 @@ Input.defaultProps = {
   className: '',
   placeholder: 'Введите текст',
   value: '',
-  pattern: '',
   type: 'text',
 };

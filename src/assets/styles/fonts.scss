@@ -65,7 +65,7 @@ $line-height-small: 17px;
 }
 
 @mixin mainText() {
-  @include Inter(clamp(1.125rem, 1.081rem + 0.19vw, 1.25rem), $font-weight-regular, 22px);
+  @include Inter(18px, $font-weight-regular, 22px);
   color: $black;
 }
 
@@ -132,4 +132,14 @@ $line-height-small: 17px;
 @mixin sliderValueName() {
   @include Inter(20px, 500, 24px);
   color: $white;
+}
+
+@mixin inputPlaceholder() {
+  @include Inter($font-size-small, $font-weight-regular, 24px);
+  color: $disabledGrey;
+}
+
+@mixin inputText() {
+  @include Inter($font-size-small, $font-weight-regular, 24px);
+  color: $black;
 }

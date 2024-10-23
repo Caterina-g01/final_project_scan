@@ -7,17 +7,6 @@
 }
 .customInput {
   width: 379px;
-  height: 43px;
-  border-radius: 5px;
-  padding-left: 10px;
-  border: 1px solid rgb(220, 220, 220);
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-
-  &:focus {
-    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
-    outline: none;
-  }
-
   @media (max-width: 864px) {
     width: clamp(19.063rem, 15.516rem + 15.13vw, 23.688rem);
   }

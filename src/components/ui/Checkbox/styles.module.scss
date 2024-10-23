@@ -1,0 +1,46 @@
+.checkbox__container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-bottom: 8px;
+  
+    &.checkbox__disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+  }
+  
+  .checkbox__input {
+    display: none; 
+  }
+  
+  .checkbox__custom {
+    width: 20px;
+    height: 20px;
+    border: 1px solid $disabledGrey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+
+  
+    &.checked {
+        border: 1px solid $black;
+    }
+  }
+  
+  .checkbox__checkmark {
+    width: 12px;
+    height: 14px;
+  }
+  
+  .checkbox__label {
+    @include mainText();
+    padding-left: 17px;
+  
+    &.checkbox__labelGray {
+        color: $disabledGrey;
+
+      }
+  }
+  

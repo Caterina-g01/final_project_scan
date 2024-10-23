@@ -1,7 +1,7 @@
 import React from 'react'
 import AdvantagesSlider from '../ui/sliders/AdvantagesSlider/AdvantagesSlider'
 import s from './styles.module.scss'
-import ImgWhy from '../../assets/images/WhyUsDesctop.png'
+import ImgWhy from '../../assets/images/WhyUsDesctop.svg'
 
 export default function WhyUsSection() {
   return (

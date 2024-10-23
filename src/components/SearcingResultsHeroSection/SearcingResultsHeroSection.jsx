@@ -1,6 +1,6 @@
 import React from 'react'
 import s from './styles.module.scss'
-import Img from '../../assets/images/SearchingResultImg.png'
+import Img from '../../assets/images/SearchingResultImg.svg'
 
 export default function SearcingResultsHeroSection() {
   return (
