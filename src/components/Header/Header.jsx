@@ -6,7 +6,7 @@ import NavBar from "../ui/NavBar/NavBar";
 import BurgerButton from "../ui/BurgerButton/BurgerButton";
 import HeaderMenuMob from "../ui/HeaderMenuMob/HeaderMenuMob";
 import ButtonSignIn from "../ui/ButtonSignIn/ButtonSignIn";
-import Avatar from "../../assets/images/icons/Avatar.png";
+import Avatar from "../../assets/images/icons/avatar.png";
 import { AuthContext } from '../../context/AuthContext';
 
 export default function Header() {
