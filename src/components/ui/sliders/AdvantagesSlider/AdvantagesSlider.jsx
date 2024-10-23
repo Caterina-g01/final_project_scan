@@ -6,6 +6,9 @@ import s from './styles.module.scss';
 import WhyUsCard from "../../WhyUsCard/WhyUsCard";
 import ArrowPrev from "../../../../assets/images/icons/arrow-left.png";
 import ArrowNext from "../../../../assets/images/icons/arrow-right.png";
+import WhyUsMagnGlass from "../../../../assets/images/icons/WhyUsMagnGlass.svg";
+import Shield from "../../../../assets/images/icons/WhyUsShield.svg";
+import Clock from "../../../../assets/images/icons/WhyUsClock.svg";
 
 
 
@@ -68,15 +71,15 @@ export default function AdvantagesSlider() {
     <Slider {...settings}>
       
       <div><WhyUsCard 
-        imageSrc="/src/assets/images/icons/WhyUs1.svg" 
+        imageSrc={Clock}
         description="Высокая и оперативная скорость обработки заявки" 
       /></div>
     <div> <WhyUsCard 
-        imageSrc="/src/assets/images/icons/WhyUs2.svg" 
+        imageSrc={WhyUsMagnGlass} 
         description="Огромная комплексная база данных, обеспечивающая объективный ответ на запрос" 
       /></div>
      <div> <WhyUsCard 
-        imageSrc="/src/assets/images/icons/WhyUs3.svg" 
+        imageSrc={Shield} 
         description="Защита конфеденциальных сведений, не подлежащих разглашению по федеральному законодательству" 
       /></div>
      
