@@ -5,6 +5,7 @@ import Slider from "react-slick";
 import s from "./styles.module.scss";
 import ArrowPrev from "../../../../assets/images/icons/arrow-left.png";
 import ArrowNext from "../../../../assets/images/icons/arrow-right.png";
+import SummarySliderSlide from "../../SummarySliderSlide/SummarySliderSlide";
 
 function NextArrow(props) {
   const { className, style, onClick } = props;
@@ -32,7 +33,7 @@ function PrevArrow(props) {
   );
 }
 
-export default function SummarySlider() {
+export default function SummarySlider({ summaryData }) {
   const settings = {
     dots: false,
     infinite: true,
@@ -67,16 +68,16 @@ export default function SummarySlider() {
   };
 
   return (
-    <div className={s.advantagesSlider__container}>
+    <div className={s.summarySlider__container}>
       <Slider {...settings}>
-        <div>1</div>
-        <div>2</div>
-        <div>3</div>
-        <div>4</div>
-        <div>5</div>
-        <div>6</div>
-        <div>7</div>
-        <div>8</div>
+        {summaryData.map((item, index) => (
+          <SummarySliderSlide 
+            key={index} 
+            period={item.period} 
+            total={item.total} 
+            risks={item.risks} 
+          />
+        ))}
       </Slider>
     </div>
   );

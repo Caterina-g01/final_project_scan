@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import s from "./styles.module.scss";
 import logo from "../../assets/images/icons/Logo.png";
 import Button from "../ui/Button/Button";
@@ -7,14 +8,20 @@ import BurgerButton from "../ui/BurgerButton/BurgerButton";
 import HeaderMenuMob from "../ui/HeaderMenuMob/HeaderMenuMob";
 import ButtonSignIn from "../ui/ButtonSignIn/ButtonSignIn";
 import Avatar from "../../assets/images/icons/avatar.png";
-import { AuthContext } from '../../context/AuthContext';
+import { AuthContext } from "../../context/AuthContext";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { isAuthenticated, logout } = useContext(AuthContext); 
+  const { isAuthenticated, logout } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  const handleLogout = () => {
+    logout();
+    navigate("/");
   };
 
   return (
@@ -28,15 +35,19 @@ export default function Header() {
         {isAuthenticated ? (
           <div className={s.header__autorizedUser}>
             <div className={s.header__autorizedUser__nameContainer}>
-            <p className={s.header__autorizedUser__name}>Алексей А.</p>
-            <Button
-              className={s.header__autorizedUser__btn}
-              onClick={logout} 
-            >
-              Выйти
-            </Button>
+              <p className={s.header__autorizedUser__name}>Алексей А.</p>
+              <Button
+                className={s.header__autorizedUser__btn}
+                onClick={handleLogout}
+              >
+                Выйти
+              </Button>
             </div>
-            <img className={s.header__autorizedUser__img} src={Avatar} alt="" />
+            <img
+              className={s.header__autorizedUser__img}
+              src={Avatar}
+              alt="Avatar"
+            />
           </div>
         ) : (
           <>

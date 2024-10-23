@@ -4,6 +4,7 @@ import Header from '../../components/Header/Header'
 import SearchSection from '../../components/SearchSection/SearchSection'
 import Footer from '../../components/Footer/Footer'
 
+
 export default function SearchPage() {
   return (
     <div>

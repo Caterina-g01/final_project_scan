@@ -1,5 +1,7 @@
 .searchSection {
+
   &__container {
+    position: relative;
     max-width: 1440px;
     margin: 0 auto;
     display: flex;
@@ -24,5 +26,17 @@
   }
   &__img {
     width: clamp(23.688rem, 22.301rem + 5.92vw, 27.625rem);
+  }
+
+  &__imgOne {
+    position: absolute;
+    top: 90px;
+    right: 100px;
+  }
+
+  &__imgTwo {
+    position: absolute;
+    top: 80px;
+    right: 480px;
   }
 }

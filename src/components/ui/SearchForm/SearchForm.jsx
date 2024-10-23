@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"; 
 import Input from "../Input/Input";
 import s from "./styles.module.scss";
 import Button from "../Button/Button";
@@ -9,7 +10,7 @@ import classNames from "classnames";
 export default function SearchForm() {
   const [inn, setInn] = useState("");
   const [numDocs, setNumDocs] = useState("");
-  const [tone, setTone] = useState("");
+  const [tone, setTone] = useState("Любая");
   const [fromDate, setFromDate] = useState("");
   const [toDate, setToDate] = useState("");
   const [checkboxes, setCheckboxes] = useState([
@@ -25,6 +26,7 @@ export default function SearchForm() {
   const [innError, setInnError] = useState("");
   const [numDocsError, setNumDocsError] = useState("");
   const [dateError, setDateError] = useState("");
+  const navigate = useNavigate(); 
 
   const handleInnChange = (value) => {
     setInn(value);
@@ -38,7 +40,7 @@ export default function SearchForm() {
     } else if (!onlyNumbers.test(value)) {
       setInnError("ИНН должен состоять из 10 цифр");
     } else {
-      setInnError("");
+      setInnError(""); 
     }
   };
 
@@ -93,6 +95,23 @@ export default function SearchForm() {
 
   const isFormValid = !innError && !numDocsError && !dateError && inn && numDocs && fromDate && toDate;
 
+  const handleSearch = () => {
+    if (isFormValid) {
+      navigate('/results', {
+        state: {
+          inn,
+          numDocs: Number(numDocs),
+          tone,
+          fromDate,
+          toDate,
+          additionalFilters: checkboxes.filter(c => c.checked).map(c => c.label),
+        },
+      });
+    } else {
+      console.log("Форма не валидна");
+    }
+  };
+
   return (
     <div className={s.searchForm__container}>
       <div className={s.searchForm__contentOne}>
@@ -102,9 +121,7 @@ export default function SearchForm() {
             <p className={s.searchForm__input__title}>ИНН компании *</p>
             <div>
               <Input
-                className={classNames(s.customInput, {
-                  [s.inputError]: innError,
-                })}
+                className={classNames(s.customInput, { [s.inputError]: innError })}
                 placeholder="10 цифр"
                 value={inn}
                 onChange={(e) => handleInnChange(e.target.value)}
@@ -130,14 +147,10 @@ export default function SearchForm() {
 
           {/* Поле для количества документов */}
           <div className={s.searchForm__input__numDocs}>
-            <p className={s.searchForm__input__title}>
-              Количество документов в выдаче *
-            </p>
+            <p className={s.searchForm__input__title}>Количество документов в выдаче *</p>
             <div>
               <Input
-                className={classNames(s.customInput, {
-                  [s.inputError]: numDocsError,
-                })}
+                className={classNames(s.customInput, { [s.inputError]: numDocsError })}
                 placeholder="От 0 до 1000"
                 value={numDocs}
                 onChange={(e) => handleNumDocsChange(e.target.value)}
@@ -171,9 +184,7 @@ export default function SearchForm() {
               selectedValue={fromDate}
               onSelect={handleFromDateSelect}
               placeholder="Дата начала"
-              selectClassName={classNames(s.dropdown__selectDate, {
-                [s.dropdownError]: dateError,
-              })}
+              selectClassName={classNames(s.dropdown__selectDate, { [s.dropdownError]: dateError })}
               shownClassName={s.dropdown__shownDate}
               dropDownContentClassName={s.dropdown__contentDate}
             />
@@ -182,9 +193,7 @@ export default function SearchForm() {
               selectedValue={toDate}
               onSelect={handleToDateSelect}
               placeholder="Дата конца"
-              selectClassName={classNames(s.dropdown__selectDate, {
-                [s.dropdownError]: dateError,
-              })}
+              selectClassName={classNames(s.dropdown__selectDate, { [s.dropdownError]: dateError })}
               shownClassName={s.dropdown__shownDate}
               dropDownContentClassName={s.dropdown__contentDate}
             />
@@ -197,6 +206,7 @@ export default function SearchForm() {
           <Button
             className={classNames(s.searchForm__btn, { [s.disabled]: !isFormValid })}
             disabled={!isFormValid}
+            onClick={handleSearch}
           >
             Поиск
           </Button>
