@@ -1,0 +1,67 @@
+.cardNews {
+&__container {
+    padding: 19px 30px 90px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-height: 694px;
+    height: fit-content;
+    border-radius: 5px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    margin-bottom: 30px;
+
+    @media (max-width: 1320px){
+      
+       }
+}
+
+&__dateAndSource {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 18px;
+}
+&__date {
+    @include cardNewsText();
+}
+&__source {
+    @include cardNewsText();
+    text-decoration: underline;
+}
+&__title {
+    @include cardNewsTitle();
+}
+&__tag {
+    @include cardNewsTag();
+}
+&__imgBlock {
+overflow: hidden;
+height: 158px;
+border-radius: 5px;
+display: flex;
+align-items: center;
+}
+&__img {
+    width: 100%;
+}
+&__description {
+    @include cardNewsText();
+}
+&__btnAndNumWords {
+    width: 90%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: end;
+    position: absolute;
+    bottom: 25px;
+}
+&__btn {
+    @include cardNewsBtn();
+}
+&__numWords {
+    @include cardNewsText();
+}
+&__content {
+}
+}

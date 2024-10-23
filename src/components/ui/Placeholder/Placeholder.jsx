@@ -5,6 +5,7 @@ import s from './styles.module.scss';
 import Button from '../Button/Button';
 import SignInWindow from '../../AutorizationWindows/SignInWindow/SignInWindow';
 import SignUpWindow from '../../AutorizationWindows/SignUpWindow/SignUpWindow';
+import Lock from '../../../assets/images/icons/Lock.png';
 
 export default function Placeholder({ className }) {
   const [activeWindow, setActiveWindow] = useState('signIn'); 
@@ -22,6 +23,7 @@ export default function Placeholder({ className }) {
 
   return (
     <div className={classNames(s.placeholder__container, className)}>
+      <img className={s.placeholder__lockImg} src={Lock} alt="" />
       <div className={s.placeholder__btnsContainer}>
         <Button 
           className={classNames(s.placeholder__btnSignIn, { [s.disabled]: isSignInDisabled })} 

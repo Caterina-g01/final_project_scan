@@ -32,19 +32,15 @@ h6 {
 }
 
 a {
-	color: rgb(0, 0, 0);
+	
 	text-decoration: none;
 }
 
 a:hover {
-	color: rgb(86, 86, 86);
-	/* Цвет гиперссылок при наведении */
+	
 }
 
-a:active {
-	color: #333333;
-	/* Цвет гиперссылок после нажатия */
-}
+
 
 html,
 body {

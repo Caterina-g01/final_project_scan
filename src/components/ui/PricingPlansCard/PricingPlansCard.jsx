@@ -16,9 +16,13 @@ export default function PricingPlansCard({
   containerBorderColor,
   backgroundColor, 
   color,
+  isActive, 
 }) {
   return (
-    <div className={s.container} style={{ borderColor: containerBorderColor }}>
+    <div 
+      className={`${s.container} ${isActive ? s.active : ''}`} 
+      style={{ borderColor: containerBorderColor }}
+    >
       <div className={s.title__container} style={{ backgroundColor }}>
         <div className={s.cardTitle__container} style={{ color }}>
           <h3 className={s.cardTitle}>{cardTitle}</h3>
@@ -42,14 +46,13 @@ export default function PricingPlansCard({
             </li>
           ))}
         </ul>
-        </div>
+      </div>
 
-        <div className={s.button__container}>
-          <Button className={s.cardButton}>
-            {buttonText}
-          </Button>
-        </div>
-      
+      <div className={s.button__container}>
+      <Button className={`${s.cardButton} ${isActive ? s.activeBtn : ''}`}>
+          {isActive ? 'Перейти в личный кабинет' : buttonText}
+        </Button>
+      </div>
     </div>
   );
 }
@@ -67,4 +70,5 @@ PricingPlansCard.propTypes = {
   containerBorderColor: PropTypes.string.isRequired, 
   backgroundColor: PropTypes.string.isRequired, 
   color: PropTypes.string.isRequired,
+  isActive: PropTypes.bool,
 };

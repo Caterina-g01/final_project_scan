@@ -13,6 +13,7 @@ export default function AutorizationSection() {
         </div>
         <div className={s.autorizationSection__placeholderBlock}>
         <Placeholder className={s.autorizationSection__placeholder} />
+        <img className={s.autorizationSection__mobImg} src={Img} alt="" />
         </div>
     </div>
   )

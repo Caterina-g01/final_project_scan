@@ -1,0 +1,39 @@
+.summarySliderContainer {
+&__container {
+    max-width: 1260px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    margin: 0 auto;
+    padding-top: 27px;
+
+    @media (max-width: 1389px) {
+        width: 833px;
+    }
+
+    @media (max-width: 940px) {
+        width: 500px;
+    }
+
+    @media (max-width: 620px) {
+        width: 298px;
+    }
+}
+&__values {
+    width: 133px;
+    height: 158px;
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+    justify-content: center;
+    background-color: $cyan;
+    border-radius: 5px 0 0 5px;
+    padding-left: 28px;
+  @include sliderValueName();
+  z-index: 1000;
+
+  @media (max-width: 620px) {
+    width: 100px;
+}
+}
+}

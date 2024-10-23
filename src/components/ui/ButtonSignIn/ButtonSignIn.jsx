@@ -2,15 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import s from './styles.module.scss';
+import { Link } from 'react-router-dom';
 
 export default function ButtonSignIn({ className, onClick, text }) {
   return (
+  <Link to="/auth">
     <button
       className={classNames(s.buttonSignIn, className)}
       onClick={onClick}
     >
       {text}
     </button>
+    </Link>
   );
 }
 

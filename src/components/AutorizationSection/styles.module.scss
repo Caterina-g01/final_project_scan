@@ -5,7 +5,7 @@
         flex-wrap: nowrap;
         justify-content: space-between;
         margin: 0 auto;
-        padding: 69 clamp(0.938rem, -0.053rem + 4.23vw, 3.75rem) 80px clamp(0.938rem, -0.053rem + 4.23vw, 3.75rem);
+        padding: clamp(1.875rem, 0.006rem + 7.98vw, 4.313rem) clamp(0.938rem, -0.053rem + 4.23vw, 3.75rem) 80px clamp(0.938rem, -0.053rem + 4.23vw, 3.75rem);
 
         @media (max-width: 864px){
             align-items: center;
@@ -14,7 +14,9 @@
     }
 
     &__placeholderBlock {
-        width: 429px;
+       display: flex;
+       flex-direction: column;
+       align-items: center;
     }
 
 &__titleBlock {
@@ -36,7 +38,17 @@
     @media (max-width: 864px){
         display: none;
        }
-}
+    }
+    &__mobImg {
+        display: none;
+        width: 75vw;
+        @media (max-width: 864px){
+            padding: 49px 15px 0 15px;
+            display: flex;
+           }
+    }
+
+      
 &__title {
     width: 100%;
     @include mainTitles();

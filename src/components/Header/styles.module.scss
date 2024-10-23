@@ -66,6 +66,26 @@
             display: none;
            }
     }
+
+    &__autorizedUser {
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 5px;
+   &__nameContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+   }
+   &__name {
+    @include headerNavAndUserAndFooter();
+    }
+   &__btn {
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    color: $disabledGrey;
+    background-color: transparent;
+    }
+}
 }
 
 

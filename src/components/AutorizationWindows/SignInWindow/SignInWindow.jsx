@@ -1,28 +1,61 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import classNames from 'classnames';
+import { useNavigate } from 'react-router-dom';
 import Input from '../../ui/Input/Input';
 import s from './styles.module.scss';
 import Button from '../../ui/Button/Button';
 import Google from '../../../assets/images/icons/google.svg';
 import Facebook from '../../../assets/images/icons/facebook.svg';
 import Yandex from '../../../assets/images/icons/yandex.svg';
+import { AuthContext } from '../../../context/AuthContext'; 
 
 export default function SignInWindow() {
+  const { login } = useContext(AuthContext); 
   const [phoneOrLogin, setPhoneOrLogin] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const navigate = useNavigate(); 
 
   const handlePhoneOrLoginChange = (e) => {
     const value = e.target.value;
     setPhoneOrLogin(value);
-
   };
 
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
   };
 
-  const isFormValid = phoneOrLogin && password; 
+  const handleSignIn = async () => {
+    try {
+      const response = await fetch('https://gateway.scan-interfax.ru/api/v1/account/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          login: phoneOrLogin,
+          password: password,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        localStorage.setItem('accessToken', data.accessToken);
+        localStorage.setItem('tokenExpire', data.expire);
+        console.log('Токен сохранён:', data.accessToken);
+        setError('');
+        login(); 
+        navigate('/');
+      } else {
+        setError(data.message || 'Ошибка авторизации');
+      }
+    } catch (err) {
+      setError('Ошибка подключения к серверу');
+    }
+  };
+
+  const isFormValid = phoneOrLogin && password;
 
   return (
     <div className={s.signInWindow__container}>
@@ -49,10 +82,13 @@ export default function SignInWindow() {
         <Button 
           className={classNames(s.signInBtn, { [s.disabled]: !isFormValid })} 
           disabled={!isFormValid}
+          onClick={handleSignIn}  
         >
           Войти
         </Button>
 
+        {error && <p className={s.error}>{error}</p>}
+        
         <a className={s.forgotPasswordLink} href="#">Восстановить пароль</a>
       </div>
       <div className={s.otherWaysToSignIn__container}>

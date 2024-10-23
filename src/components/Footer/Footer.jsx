@@ -3,7 +3,7 @@ import s from './styles.module.scss'
 import Logo from '../../assets/images/icons/LogoFooter.svg'
 export default function Footer() {
   return (
-    <div className={s.container}>
+    <footer className={s.container}>
       <div className={s.content}>
       <div className={s.logo}>
         <img className={s.logoImg} src={Logo} alt="logo" />
@@ -17,6 +17,6 @@ export default function Footer() {
         <div className={s.footerInfo__copyright}>Copyright. 2022</div>
       </div>
       </div>
-    </div>
+    </footer>
   )
 }

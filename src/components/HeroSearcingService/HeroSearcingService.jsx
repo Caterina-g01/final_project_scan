@@ -2,8 +2,11 @@ import React from "react";
 import s from "./styles.module.scss";
 import Button from "../ui/Button/Button";
 import HeroImg from "../../assets/images/HeroSectionPic.png";
+import { useAuth } from "../../context/AuthContext"; 
 
 export default function HeroSearcingService() {
+  const { isAuthenticated } = useAuth();
+
   return (
     <div className={s.heroSearcingService__container}>
       <div className={s.heroSearcingService__content}>
@@ -11,11 +14,13 @@ export default function HeroSearcingService() {
           сервис по поиску публикаций <br />о компании <br /> по его ИНН
         </h1>
         <div className={s.heroSearcingService__text}>
-        Комплексный анализ публикаций, получение данных  <br />в формате PDF на электронную почту.
+          Комплексный анализ публикаций, получение данных  <br />в формате PDF на электронную почту.
         </div>
-        <Button className={s.heroSearcingService__btn}>
-          Запросить данные
-        </Button>
+        {isAuthenticated && ( 
+          <Button className={s.heroSearcingService__btn}>
+            Запросить данные
+          </Button>
+        )}
       </div>
       <img src={HeroImg} className={s.heroSearcingService__img}></img>
     </div>

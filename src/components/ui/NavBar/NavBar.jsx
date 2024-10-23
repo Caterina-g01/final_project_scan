@@ -8,7 +8,8 @@ import { Link } from 'react-router-dom';
 export default function NavBar({ className = '' }) { 
   return (
     <ul className={classNames(s.navBar, className)}>
-        <Link to="/"><li className={s.navBar__link}>Главная</li></Link>
+        <Link to="/"><li
+         className={classNames(s.navBar__link, className)}>Главная</li></Link>
       
       <li className={s.navBar__link}>Тарифы</li>
       <li className={s.navBar__link}>FAQ</li>

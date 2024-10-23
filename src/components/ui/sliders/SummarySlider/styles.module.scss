@@ -1,0 +1,35 @@
+.advantagesSlider__container {
+    width: 1130px;
+    height: 158px;
+    border: 1px solid $cyan;
+    border-radius: 0 5px 5px 0;
+    position: relative;
+    margin: 0 auto;
+    
+
+    @media (max-width: 1389px) {
+        width: 700px;
+    }
+    @media (max-width: 940px) {
+        width: 367px;
+    }
+
+    @media (max-width: 620px) {
+        width: 198px;
+    }
+}
+.arrowPrev {
+    position: absolute;
+    left: -153px;
+    top: -10px;
+
+    @media (max-width: 620px) {
+        left: -120px;
+    }
+}
+
+.arrowNext {
+    position: absolute;
+    right: -20px;
+    top: -10px;
+}

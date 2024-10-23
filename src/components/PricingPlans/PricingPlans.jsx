@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import s from './styles.module.scss';
 import PricingPlansCard from '../ui/PricingPlansCard/PricingPlansCard';
 import ImgOne from '../../assets/images/icons/PricePlans3.png';
 import ImgTwo from '../../assets/images/icons/PricePlans2.png';
 import ImgThree from '../../assets/images/icons/PricePlans1.png';
+import { AuthContext } from '../../context/AuthContext';
 
 export default function PricingPlans() {
+  const { isAuthenticated } = useContext(AuthContext); 
   const plans = [
     {
       imageSrc: ImgOne,
@@ -68,28 +70,26 @@ export default function PricingPlans() {
     <div className={s.pricingPlans__container}>
       <h1 className={s.pricingPlans__title}>наши Тарифы</h1>
       <div className={s.pricingPlans__content}>
-      {plans.map((plan, index) => (
-        <PricingPlansCard
-          key={index}
-          imageSrc={plan.imageSrc}
-          cardTitle={plan.cardTitle}
-          titleDescription={plan.titleDescription}
-          price={plan.price}
-          oldPrice={plan.oldPrice}
-          priceDescription={plan.priceDescription}
-          descriptionTitle={plan.descriptionTitle}
-          description={plan.description}
-          buttonText={plan.buttonText}
-          containerBorderColor={plan.containerBorderColor}
-    backgroundColor={plan.backgroundColor} 
-    color={plan.color}
-
-        />
-        
-      ))}
+        {plans.map((plan, index) => (
+          <PricingPlansCard
+            className={s.pricingPlans__card}
+            key={index}
+            imageSrc={plan.imageSrc}
+            cardTitle={plan.cardTitle}
+            titleDescription={plan.titleDescription}
+            price={plan.price}
+            oldPrice={plan.oldPrice}
+            priceDescription={plan.priceDescription}
+            descriptionTitle={plan.descriptionTitle}
+            description={plan.description}
+            buttonText={plan.buttonText}
+            containerBorderColor={plan.containerBorderColor}
+            backgroundColor={plan.backgroundColor} 
+            color={plan.color}
+            isActive={isAuthenticated && index === 0} 
+          />
+        ))}
       </div>
     </div>
   );
 }
-
-

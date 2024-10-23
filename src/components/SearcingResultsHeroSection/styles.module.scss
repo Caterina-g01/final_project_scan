@@ -1,0 +1,37 @@
+.searcingResultsHeroSection {
+    &__container {
+        max-width: 1440px;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        padding: 20px clamp(0.875rem, -0.137rem + 4.32vw, 3.75rem) 20px clamp(0.875rem, -0.137rem + 4.32vw, 3.75rem);
+        margin: 0 auto;
+        align-items: center;
+
+        @media (max-width: 864px) {
+            flex-direction: column;
+            gap: 20px;
+        }
+    }
+    &__titleBlock {
+        display: flex;
+        flex-direction: column;
+        gap: 36px;  
+    }
+    &__title {
+        @include mainTitles();
+    }
+    &__titleText {
+        @include heroSearchDescrAndPricingPlansBtns();
+    }
+    &__btn {
+        
+    }
+    &__img {
+width: clamp(21.875rem, 17.43rem + 18.97vw, 34.5rem);
+        @media (max-width: 864px) {
+            
+        }
+    }
+}
+

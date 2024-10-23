@@ -13,3 +13,45 @@
         opacity: 0.5; 
     }
 }
+
+@mixin cardNewsBtn() {
+    @include Inter(14px, 500, 19px);
+    background-color: $aquamarine;
+    transition: all 0.3s ease;
+    border: none;
+    border-radius: 5px; 
+    padding: 14px 33px; 
+    cursor: pointer;
+    width: 223px;
+    height: 46.5px;
+
+    &:hover {
+        background-color: $cyan;
+    }
+
+   @media (max-width: 864px) {
+    width: 195px;
+    height: 40.7px;
+    padding: 0 10px;
+   } 
+}
+
+
+@mixin cardNewsTag() {
+    @include Inter(12px, 400, 15px);
+    background-color: $orange;
+    transition: all 0.3s ease;
+    border: none;
+    border-radius: 5px; 
+    padding: 4px 13px; 
+    cursor: pointer;
+    width: 157px;
+    height: 22px;
+
+
+   @media (max-width: 864px) {
+    width: 139px;
+    height: 20px;
+    padding: 2px 5px; 
+   } 
+}
