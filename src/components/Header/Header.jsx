@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import s from "./styles.module.scss";
-import logo from "../../assets/images/icons/Logo.svg";
+import logo from "../../assets/images/icons/Logo.png";
 import Button from "../ui/Button/Button";
 import NavBar from "../ui/NavBar/NavBar";
 import BurgerButton from "../ui/BurgerButton/BurgerButton";
