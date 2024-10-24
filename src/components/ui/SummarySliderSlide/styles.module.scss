@@ -1,0 +1,11 @@
+.summarySliderSlide__container {
+  padding-top: 18px;
+  width: 130px;
+  height: 155px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  align-items: center;
+  @include heroSearchDescrAndPricingPlansBtns();
+  border-right: 2px solid $disabledGrey;
+}

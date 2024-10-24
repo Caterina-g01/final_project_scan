@@ -1,14 +1,16 @@
 .summarySection {
+  &__container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 clamp(0.875rem, -0.137rem + 4.32vw, 3.75rem) 0
+      clamp(0.875rem, -0.137rem + 4.32vw, 3.75rem);
+  }
+  &__title {
+    @include searcingResultsTitle();
+  }
 
-    &__container {
-        max-width: 1440px;
-        margin: 0 auto;
-        padding: 0 clamp(0.875rem, -0.137rem + 4.32vw, 3.75rem) 0 clamp(0.875rem, -0.137rem + 4.32vw, 3.75rem);
-       
-    }
-    &__title {
-        @include searcingResultsTitle();
-    }
-
-
+  &__info {
+    padding-top: 17px;
+    @include cardNewsText();
+  }
 }

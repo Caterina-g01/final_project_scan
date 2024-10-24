@@ -1,9 +1,9 @@
 import React from "react";
 import s from "./styles.module.scss";
-import SearchImg from "../../assets/images/SearchImg.png";
-import SearchForm from "../ui/SearchForm/SearchForm";
-import SearchImg2 from "../../assets/images/SearchSmallImgTwo.svg";
-import SearchImg3 from "../../assets/images/SearchSmallImgOne.svg";
+import SearchImg from "../../../assets/images/SearchImg.png";
+import SearchForm from "../../ui/SearchForm/SearchForm";
+import SearchImg2 from "../../../assets/images/SearchSmallImgTwo.svg";
+import SearchImg3 from "../../../assets/images/SearchSmallImgOne.svg";
 
 export default function SearchSection() {
   return (

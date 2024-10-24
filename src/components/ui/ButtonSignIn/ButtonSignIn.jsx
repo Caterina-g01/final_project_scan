@@ -1,18 +1,22 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import s from './styles.module.scss';
-import { Link } from 'react-router-dom';
+import React from "react";
+import PropTypes from "prop-types";
+import classNames from "classnames";
+import s from "./styles.module.scss";
+import { Link } from "react-router-dom";
 
-export default function ButtonSignIn({ className, onClick, text }) {
+export default function ButtonSignIn({
+  className = "",
+  onClick,
+  text = "Войти",
+}) {
   return (
-  <Link to="/auth">
-    <button
-      className={classNames(s.buttonSignIn, className)}
-      onClick={onClick}
-    >
-      {text}
-    </button>
+    <Link to="/auth">
+      <button
+        className={classNames(s.buttonSignIn, className)}
+        onClick={onClick}
+      >
+        {text}
+      </button>
     </Link>
   );
 }
@@ -20,10 +24,5 @@ export default function ButtonSignIn({ className, onClick, text }) {
 ButtonSignIn.propTypes = {
   className: PropTypes.string,
   onClick: PropTypes.func.isRequired,
-  text: PropTypes.string.isRequired,
-};
-
-ButtonSignIn.defaultProps = {
-  className: '',
-  text: 'Войти',
+  text: PropTypes.string,
 };

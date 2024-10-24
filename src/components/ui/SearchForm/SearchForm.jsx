@@ -1,18 +1,23 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import Input from "../Input/Input";
 import s from "./styles.module.scss";
 import Button from "../Button/Button";
 import DropDown from "../DropDown/DropDown";
 import Checkbox from "../Checkbox/Checkbox";
 import classNames from "classnames";
+import { getSummary } from "../../../requests/publications";
 
 export default function SearchForm() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const [inn, setInn] = useState("");
   const [numDocs, setNumDocs] = useState("");
   const [tone, setTone] = useState("Любая");
-  const [fromDate, setFromDate] = useState("");
-  const [toDate, setToDate] = useState("");
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
   const [checkboxes, setCheckboxes] = useState([
     { label: "Признак максимальной полноты", checked: false },
     { label: "Упоминания в бизнес-контексте", checked: false },
@@ -26,7 +31,6 @@ export default function SearchForm() {
   const [innError, setInnError] = useState("");
   const [numDocsError, setNumDocsError] = useState("");
   const [dateError, setDateError] = useState("");
-  const navigate = useNavigate(); 
 
   const handleInnChange = (value) => {
     setInn(value);
@@ -40,7 +44,7 @@ export default function SearchForm() {
     } else if (!onlyNumbers.test(value)) {
       setInnError("ИНН должен состоять из 10 цифр");
     } else {
-      setInnError(""); 
+      setInnError("");
     }
   };
 
@@ -64,27 +68,27 @@ export default function SearchForm() {
 
   const handleToneSelect = (selectedTone) => setTone(selectedTone);
 
-  const validateDates = (from, to) => {
+  const validateDates = (start, end) => {
     const today = new Date().toISOString().split("T")[0];
-    if (!from || !to) {
+    if (!start || !end) {
       setDateError("Введите корректные данные");
-    } else if (from > today || to > today) {
+    } else if (start > today || end > today) {
       setDateError("Дата не может быть в будущем");
-    } else if (from > to) {
+    } else if (start > end) {
       setDateError("Дата начала не может быть позже даты конца");
     } else {
       setDateError("");
     }
   };
 
-  const handleFromDateSelect = (date) => {
-    setFromDate(date);
-    validateDates(date, toDate);
+  const handleStartDateSelect = (date) => {
+    setStartDate(date);
+    validateDates(date, endDate);
   };
 
-  const handleToDateSelect = (date) => {
-    setToDate(date);
-    validateDates(fromDate, date);
+  const handleEndDateSelect = (date) => {
+    setEndDate(date);
+    validateDates(startDate, date);
   };
 
   const handleCheckboxChange = (index, newChecked) => {
@@ -93,20 +97,40 @@ export default function SearchForm() {
     setCheckboxes(updatedCheckboxes);
   };
 
-  const isFormValid = !innError && !numDocsError && !dateError && inn && numDocs && fromDate && toDate;
+  const isFormValid =
+    !innError &&
+    !numDocsError &&
+    !dateError &&
+    inn &&
+    numDocs &&
+    startDate &&
+    endDate;
 
-  const handleSearch = () => {
+  const handleSearch = async () => {
     if (isFormValid) {
-      navigate('/results', {
-        state: {
-          inn,
-          numDocs: Number(numDocs),
-          tone,
-          fromDate,
-          toDate,
-          additionalFilters: checkboxes.filter(c => c.checked).map(c => c.label),
-        },
-      });
+      const additionalFilters = checkboxes
+        .filter((c) => c.checked)
+        .map((c) => c.label);
+
+      try {
+        await dispatch(
+          getSummary(
+            inn,
+            tone === "Позитивная"
+              ? "positive"
+              : tone === "Негативная"
+              ? "negative"
+              : "any",
+            Number(numDocs),
+            startDate,
+            endDate,
+            ...additionalFilters
+          )
+        );
+        navigate("/results");
+      } catch (error) {
+        console.error("Ошибка при выполнении запроса:", error);
+      }
     } else {
       console.log("Форма не валидна");
     }
@@ -116,12 +140,13 @@ export default function SearchForm() {
     <div className={s.searchForm__container}>
       <div className={s.searchForm__contentOne}>
         <div className={s.searchForm__inputs}>
-          {/* Поле для ИНН */}
           <div className={s.searchForm__input__InnNum}>
             <p className={s.searchForm__input__title}>ИНН компании *</p>
             <div>
               <Input
-                className={classNames(s.customInput, { [s.inputError]: innError })}
+                className={classNames(s.customInput, {
+                  [s.inputError]: innError,
+                })}
                 placeholder="10 цифр"
                 value={inn}
                 onChange={(e) => handleInnChange(e.target.value)}
@@ -131,7 +156,6 @@ export default function SearchForm() {
             </div>
           </div>
 
-          {/* Поле для тональности */}
           <div className={s.searchForm__input__tone}>
             <p className={s.searchForm__input__title}>Тональность</p>
             <DropDown
@@ -145,12 +169,15 @@ export default function SearchForm() {
             />
           </div>
 
-          {/* Поле для количества документов */}
           <div className={s.searchForm__input__numDocs}>
-            <p className={s.searchForm__input__title}>Количество документов в выдаче *</p>
+            <p className={s.searchForm__input__title}>
+              Количество документов в выдаче *
+            </p>
             <div>
               <Input
-                className={classNames(s.customInput, { [s.inputError]: numDocsError })}
+                className={classNames(s.customInput, {
+                  [s.inputError]: numDocsError,
+                })}
                 placeholder="От 0 до 1000"
                 value={numDocs}
                 onChange={(e) => handleNumDocsChange(e.target.value)}
@@ -161,7 +188,6 @@ export default function SearchForm() {
           </div>
         </div>
 
-        {/* Чекбоксы */}
         <div className={s.searchForm__checkboxs}>
           {checkboxes.map((checkbox, index) => (
             <Checkbox
@@ -175,25 +201,28 @@ export default function SearchForm() {
       </div>
 
       <div className={s.searchForm__contentTwo}>
-        {/* Поля для диапазона дат */}
         <div className={s.searchForm__input__ranges}>
           <p className={s.searchForm__input__title}>Диапазон поиска *</p>
           <div className={s.searchForm__input__dates}>
             <DropDown
               isDatePicker
-              selectedValue={fromDate}
-              onSelect={handleFromDateSelect}
+              selectedValue={startDate}
+              onSelect={handleStartDateSelect}
               placeholder="Дата начала"
-              selectClassName={classNames(s.dropdown__selectDate, { [s.dropdownError]: dateError })}
+              selectClassName={classNames(s.dropdown__selectDate, {
+                [s.dropdownError]: dateError,
+              })}
               shownClassName={s.dropdown__shownDate}
               dropDownContentClassName={s.dropdown__contentDate}
             />
             <DropDown
               isDatePicker
-              selectedValue={toDate}
-              onSelect={handleToDateSelect}
+              selectedValue={endDate}
+              onSelect={handleEndDateSelect}
               placeholder="Дата конца"
-              selectClassName={classNames(s.dropdown__selectDate, { [s.dropdownError]: dateError })}
+              selectClassName={classNames(s.dropdown__selectDate, {
+                [s.dropdownError]: dateError,
+              })}
               shownClassName={s.dropdown__shownDate}
               dropDownContentClassName={s.dropdown__contentDate}
             />
@@ -201,10 +230,11 @@ export default function SearchForm() {
           {dateError && <span className={s.error}>{dateError}</span>}
         </div>
 
-        {/* Кнопка поиска */}
         <div className={s.searchForm__btnBlock}>
           <Button
-            className={classNames(s.searchForm__btn, { [s.disabled]: !isFormValid })}
+            className={classNames(s.searchForm__btn, {
+              [s.disabled]: !isFormValid,
+            })}
             disabled={!isFormValid}
             onClick={handleSearch}
           >

@@ -1,16 +1,16 @@
 import React from "react";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 import s from "./styles.module.scss";
-import Button from "../ui/Button/Button";
-import HeroImg from "../../assets/images/HeroSectionPic.svg";
-import { useAuth } from "../../context/AuthContext"; 
+import Button from "../../ui/Button/Button";
+import HeroImg from "../../../assets/images/HeroSectionPic.svg";
+import { useSelector } from "react-redux";
 
-export default function HeroSearcingService() {
-  const { isAuthenticated } = useAuth();
-  const navigate = useNavigate(); 
+export default function HeroSearchingService() {
+  const isAuthenticated = useSelector((state) => state.user.isAuth);
+  const navigate = useNavigate();
 
   const handleButtonClick = () => {
-    navigate('/search'); 
+    navigate("/search");
   };
 
   return (
@@ -20,10 +20,14 @@ export default function HeroSearcingService() {
           сервис по поиску публикаций <br />о компании <br /> по его ИНН
         </h1>
         <div className={s.heroSearcingService__text}>
-          Комплексный анализ публикаций, получение данных <br />в формате PDF на электронную почту.
+          Комплексный анализ публикаций, получение данных <br />в формате PDF на
+          электронную почту.
         </div>
         {isAuthenticated && (
-          <Button className={s.heroSearcingService__btn} onClick={handleButtonClick}>
+          <Button
+            className={s.heroSearcingService__btn}
+            onClick={handleButtonClick}
+          >
             Запросить данные
           </Button>
         )}

@@ -4,18 +4,18 @@ import classNames from "classnames";
 import s from "./styles.module.scss";
 
 export default function DropDown({
-  options,
-  isDatePicker,
-  selectedValue,
+  options = [],
+  isDatePicker = false,
+  selectedValue = "",
   onSelect,
-  placeholder,
-  selectClassName,
-  shownClassName,
-  dropDownContentClassName,
-  hasError,
+  placeholder = "Выберите...",
+  selectClassName = "",
+  shownClassName = "",
+  dropDownContentClassName = "",
+  hasError = false,
 }) {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState(selectedValue || "");
+  const [selectedOption, setSelectedOption] = useState(selectedValue);
   const dropDownRef = useRef(null);
 
   const toggleDropDown = () => {
@@ -93,14 +93,4 @@ DropDown.propTypes = {
   shownClassName: PropTypes.string,
   dropDownContentClassName: PropTypes.string,
   hasError: PropTypes.bool,
-};
-
-DropDown.defaultProps = {
-  options: [],
-  isDatePicker: false,
-  placeholder: "Выберите...",
-  selectClassName: "",
-  shownClassName: "",
-  dropDownContentClassName: "",
-  hasError: false,
 };

@@ -7,7 +7,7 @@ import ButtonSignIn from "../ButtonSignIn/ButtonSignIn";
 import Button from "../Button/Button";
 import { AuthContext } from "../../../context/AuthContext";
 
-export default function HeaderMenuMob({ className }) {
+export default function HeaderMenuMob({ className = "" }) {
   const { isAuthenticated, logout } = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -46,8 +46,4 @@ export default function HeaderMenuMob({ className }) {
 
 HeaderMenuMob.propTypes = {
   className: PropTypes.string,
-};
-
-HeaderMenuMob.defaultProps = {
-  className: "",
 };

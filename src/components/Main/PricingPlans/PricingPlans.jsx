@@ -1,13 +1,16 @@
-import React, { useContext } from "react";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import s from "./styles.module.scss";
-import PricingPlansCard from "../ui/PricingPlansCard/PricingPlansCard";
-import ImgOne from "../../assets/images/icons/PricePlans3.png";
-import ImgTwo from "../../assets/images/icons/PricePlans2.png";
-import ImgThree from "../../assets/images/icons/PricePlans1.png";
-import { AuthContext } from "../../context/AuthContext";
+import PricingPlansCard from "../../ui/PricingPlansCard/PricingPlansCard";
+import ImgOne from "../../../assets/images/icons/PricePlans3.png";
+import ImgTwo from "../../../assets/images/icons/PricePlans2.png";
+import ImgThree from "../../../assets/images/icons/PricePlans1.png";
+import { userInfo } from "../../../store/userSlice";
 
 export default function PricingPlans() {
-  const { isAuthenticated } = useContext(AuthContext);
+  const dispatch = useDispatch();
+  const isAuthenticated = useSelector((state) => state.user.isAuth);
+
   const plans = [
     {
       imageSrc: ImgOne,
@@ -22,10 +25,11 @@ export default function PricingPlans() {
         "Безопасная сделка",
         "Поддержка 24/7",
       ],
-      buttonText: "Подробнее",
+      buttonText: isAuthenticated ? "Текущий тариф" : "Подробнее",
       containerBorderColor: "#FFB64F",
       backgroundColor: "#FFB64F",
       color: "#000000",
+      isActive: isAuthenticated,
     },
     {
       imageSrc: ImgTwo,
@@ -44,6 +48,7 @@ export default function PricingPlans() {
       containerBorderColor: "#7CE3E1",
       backgroundColor: "#7CE3E1",
       color: "#000000",
+      isActive: false,
     },
     {
       imageSrc: ImgThree,
@@ -62,6 +67,7 @@ export default function PricingPlans() {
       containerBorderColor: "#000000",
       backgroundColor: "#000000",
       color: "#FFFFFF",
+      isActive: false,
     },
   ];
 
@@ -81,7 +87,11 @@ export default function PricingPlans() {
             priceDescription={plan.priceDescription}
             descriptionTitle={plan.descriptionTitle}
             description={plan.description}
-            buttonText={plan.buttonText}
+            buttonText={
+              plan.isActive && isAuthenticated
+                ? "Текущий тариф"
+                : plan.buttonText
+            }
             containerBorderColor={plan.containerBorderColor}
             backgroundColor={plan.backgroundColor}
             color={plan.color}
