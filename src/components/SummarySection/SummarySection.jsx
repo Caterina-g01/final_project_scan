@@ -2,9 +2,10 @@ import React from "react";
 import { useSelector } from "react-redux";
 import s from "./styles.module.scss";
 import SummarySliderContainer from "../SummarySliderContainer/SummarySliderContainer";
+import { selectDocumentsCount } from "../../store/publicationsSlice";
 
 export default function SummarySection() {
-  const publicationsCount = useSelector((state) => state.publications.count);
+  const publicationsCount = useSelector(selectDocumentsCount);
 
   return (
     <div className={s.summarySection__container}>

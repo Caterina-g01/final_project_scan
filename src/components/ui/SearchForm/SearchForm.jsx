@@ -8,6 +8,7 @@ import DropDown from "../DropDown/DropDown";
 import Checkbox from "../Checkbox/Checkbox";
 import classNames from "classnames";
 import { getSummary } from "../../../requests/publications";
+import { toggleIsFetching } from "../../../store/publicationsSlice"; // Импортируйте действие для управления состоянием загрузки
 
 export default function SearchForm() {
   const dispatch = useDispatch();
@@ -112,6 +113,8 @@ export default function SearchForm() {
         .filter((c) => c.checked)
         .map((c) => c.label);
 
+      dispatch(toggleIsFetching(true)); // Устанавливаем isFetching в true перед запросом
+
       try {
         await dispatch(
           getSummary(
@@ -130,6 +133,8 @@ export default function SearchForm() {
         navigate("/results");
       } catch (error) {
         console.error("Ошибка при выполнении запроса:", error);
+      } finally {
+        dispatch(toggleIsFetching(false)); // Устанавливаем isFetching в false после завершения запроса
       }
     } else {
       console.log("Форма не валидна");
@@ -240,9 +245,9 @@ export default function SearchForm() {
           >
             Поиск
           </Button>
-          <span className={s.searchForm__required}>
+          <p className={s.searchForm__required}>
             * Обязательные к заполнению поля
-          </span>
+          </p>
         </div>
       </div>
     </div>

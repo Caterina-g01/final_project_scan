@@ -6,6 +6,7 @@ export default function SummarySliderSlide({
   totalDocuments,
   riskFactors,
 }) {
+  console.log({date: date, totalDocuments: totalDocuments});
   return (
     <div className={s.summarySliderSlide__container}>
       <div>{date}</div>

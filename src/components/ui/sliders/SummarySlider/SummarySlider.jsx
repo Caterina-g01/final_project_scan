@@ -51,44 +51,18 @@ export default function SummarySlider() {
       riskFactors: histogram.histogramType === "riskFactors" ? item.value : 0,
     }))
   );
-
   const filteredHistograms = formattedData.filter(
     (item) => item.totalDocuments !== 0 || item.riskFactors !== 0
   );
-
   const settings = {
     dots: false,
-    infinite: true,
+    infinite: false,
     arrows: true,
+    variableWidth: true,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
-    slidesToShow: 8,
-    slidesToScroll: 2,
-    responsive: [
-      {
-        breakpoint: 1389,
-        settings: {
-          slidesToShow: 6,
-          centerPadding: "1px",
-        },
-      },
-      {
-        breakpoint: 940,
-        settings: {
-          slidesToShow: 4,
-          centerPadding: "1px",
-        },
-      },
-      {
-        breakpoint: 864,
-        settings: {
-          slidesToShow: 3,
-          centerPadding: "1px",
-        },
-      },
-    ],
   };
-
+  console.log(filteredHistograms);
   return (
     <div className={s.advantagesSlider__container}>
       <Slider {...settings}>

@@ -1,15 +1,16 @@
 .cardNews {
   &__container {
+    max-width: 641px;
     padding: 19px 30px 90px 30px;
     display: flex;
     flex-direction: column;
     gap: 20px;
     min-height: 694px;
-    height: fit-content;
     border-radius: 5px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     position: relative;
     margin-bottom: 30px;
+    overflow: hidden;
 
     @media (max-width: 1320px) {
     }
@@ -26,6 +27,7 @@
   &__source {
     @include cardNewsText();
     text-decoration: underline;
+    cursor: pointer;
   }
   &__title {
     @include cardNewsTitle();

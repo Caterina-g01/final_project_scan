@@ -1,18 +1,17 @@
 .placeholder {
   &__container {
     width: 429px;
-    height: 523px;
+    min-height: 550px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     padding-top: 25px;
     position: relative;
 
-
-    @media (max-width: 864px){
-        width: clamp(20.938rem, 16.432rem + 19.22vw, 26.813rem);
-       }
-       margin-right: 0;
-       height: 504px;
+    @media (max-width: 864px) {
+      width: clamp(20.938rem, 16.432rem + 19.22vw, 26.813rem);
+    }
+    margin-right: 0;
+    height: 504px;
   }
 
   &__lockImg {
@@ -20,10 +19,10 @@
     width: 75px;
     top: -55px;
     left: -50px;
-    @media (max-width: 864px){
-        left: 100px;
-        top: -80px;
-       }
+    @media (max-width: 864px) {
+      left: 100px;
+      top: -80px;
+    }
   }
 
   &__btnsContainer {
@@ -34,7 +33,8 @@
     gap: 15px;
   }
 
-  &__btnSignIn, &__btnSignUp {
+  &__btnSignIn,
+  &__btnSignUp {
     background-color: transparent;
     color: $cyan;
     font-size: 16px;
@@ -47,20 +47,18 @@
 
   &__btnSignIn {
     width: 151px;
-    @media (max-width: 864px){
-        width: clamp(6.438rem, 4.137rem + 9.82vw, 9.438rem);
-       }
+    @media (max-width: 864px) {
+      width: clamp(6.438rem, 4.137rem + 9.82vw, 9.438rem);
+    }
   }
   &__btnSignUp {
     width: 213px;
-    @media (max-width: 864px){
-        width: clamp(11.375rem, 9.889rem + 6.34vw, 13.313rem);
-       }
-
-    
+    @media (max-width: 864px) {
+      width: clamp(11.375rem, 9.889rem + 6.34vw, 13.313rem);
+    }
   }
 }
 .disabled {
-    color: $disabledGrey; 
-    border-color: $disabledGrey;
-  }
+  color: $disabledGrey;
+  border-color: $disabledGrey;
+}
