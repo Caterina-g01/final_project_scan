@@ -23,3 +23,21 @@
 1. Клонировать репозиторий:
    ```bash
    git clone https://github.com/your-username/your-repo.git
+
+   # 🔐 Доступ к учебному проекту
+
+**ИНН компании**: `7710137066`
+
+## 👥 Пользователи и пароли
+| Пользователь   | Пароль    |
+|----------------|-----------|
+| `sf_student1`  | `4i2385j` |
+| `sf_student2`  | `lV8xjCH` |
+| `sf_student3`  | `6z9ZFRs` |
+| `sf_student4`  | `Br1+tbG` |
+| `sf_student5`  | `LuwAwJf` |
+| `sf_student6`  | `eczpWCB` |
+| `sf_student7`  | `P6VcKNf` |
+| `sf_student8`  | `5QB0KM/` |
+| `sf_student9`  | `DTdEwAn` |
+| `sf_student10` | `KHKfTXb` |
