@@ -4,11 +4,11 @@ import classNames from "classnames";
 import s from "./styles.module.scss";
 
 export default function Input({
-  className = "", // Значение по умолчанию
-  placeholder = "Введите текст", // Значение по умолчанию
-  value = "", // Значение по умолчанию
+  className = "",
+  placeholder = "Введите текст",
+  value = "",
   onChange,
-  type = "text", // Значение по умолчанию
+  type = "text",
 }) {
   return (
     <div className={s.input__container}>

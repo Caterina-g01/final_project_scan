@@ -6,13 +6,17 @@ export const logIn = (login, password) => {
   return async (dispatch) => {
     dispatch(toggleIsRequest(true));
     try {
-      const res = await $api.post("/account/login", {
-        login,
-        password,
-      });
+      const res = await $api.post("/account/login", { login, password });
+
+      const { accessToken, expire } = res.data;
+
+      console.log("Полученный токен:", accessToken);
+      console.log("Срок действия токена:", expire);
+
+      localStorage.setItem("token", accessToken);
+      localStorage.setItem("expire", expire);
+
       dispatch(userAuth());
-      localStorage.setItem("token", res.data.accessToken);
-      localStorage.setItem("expire", res.data.expire);
       dispatch(getInfo());
     } catch (err) {
       const errorMessage = err.response?.data?.message || "Ошибка авторизации";

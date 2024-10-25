@@ -1,5 +1,5 @@
 import React from "react";
-import { useSelector } from "react-redux"; // Импортируйте useSelector из react-redux
+import { useSelector } from "react-redux";
 import s from "./styles.module.scss";
 import SummarySliderContainer from "../SummarySliderContainer/SummarySliderContainer";
 

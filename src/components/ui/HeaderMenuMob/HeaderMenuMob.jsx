@@ -1,18 +1,21 @@
-import React, { useContext } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
 import s from "./styles.module.scss";
 import NavBar from "../NavBar/NavBar";
 import ButtonSignIn from "../ButtonSignIn/ButtonSignIn";
 import Button from "../Button/Button";
-import { AuthContext } from "../../../context/AuthContext";
+import { useSelector, useDispatch } from "react-redux";
+import { userLogout } from "../../../store/userSlice";
 
 export default function HeaderMenuMob({ className = "" }) {
-  const { isAuthenticated, logout } = useContext(AuthContext);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const isAuthenticated = useSelector((state) => state.user.isAuth);
+
   const handleLogout = () => {
-    logout();
+    dispatch(userLogout());
     navigate("/");
   };
 

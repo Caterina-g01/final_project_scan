@@ -1,14 +1,12 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import s from "./styles.module.scss";
 import PricingPlansCard from "../../ui/PricingPlansCard/PricingPlansCard";
 import ImgOne from "../../../assets/images/icons/PricePlans3.png";
 import ImgTwo from "../../../assets/images/icons/PricePlans2.png";
 import ImgThree from "../../../assets/images/icons/PricePlans1.png";
-import { userInfo } from "../../../store/userSlice";
 
 export default function PricingPlans() {
-  const dispatch = useDispatch();
   const isAuthenticated = useSelector((state) => state.user.isAuth);
 
   const plans = [

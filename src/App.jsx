@@ -1,23 +1,42 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import "./App.css";
-import MainPage from "../src/pages/MainPage/MainPage";
+import { HashRouter, Route, Routes } from "react-router-dom";
+import Header from "./components/Header/Header";
+import MainPage from "./pages/MainPage/MainPage";
 import AutorizationPage from "./pages/AutorizationPage/AutorizationPage";
 import SearchPage from "./pages/SearchPage/SearchPage";
 import SearchResultPage from "./pages/SearchResultPage/SearchResultPage";
-import { AuthProvider } from "../src/context/AuthContext";
+import Footer from "./components/Footer/Footer";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { userAuth, userInfo, userLogout } from "./store/userSlice";
+import { getInfo } from "./requests/authActions";
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const expire = localStorage.getItem("expire");
+    const expireDate = new Date(expire);
+    const now = new Date();
+
+    if (now < expireDate) {
+      dispatch(userAuth());
+      dispatch(getInfo());
+    } else {
+      dispatch(userLogout());
+    }
+  }, [dispatch]);
+
   return (
-    <AuthProvider>
-      <Router>
-        <Routes>
-          <Route path="/" element={<MainPage />} />
-          <Route path="/auth" element={<AutorizationPage />} />
-          <Route path="/search" element={<SearchPage />} />
-          <Route path="/results" element={<SearchResultPage />} />
-        </Routes>
-      </Router>
-    </AuthProvider>
+    <HashRouter>
+      <Header />
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+        <Route path="/auth" element={<AutorizationPage />} />
+        <Route path="/search" element={<SearchPage />} />
+        <Route path="/results" element={<SearchResultPage />} />
+      </Routes>
+      <Footer />
+    </HashRouter>
   );
 }
 
